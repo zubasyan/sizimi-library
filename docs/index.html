@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <title>kyopro-library</title>
+        <style>
+            body{
+                background-color: #eaeff3; /*snow color*/
+                color:black;
+                font-family:Noto Sans,"Yu Gothic",YuGothic,"MS Ｐゴシック","Meiryo";
+                font-style: normal;
+                font-weight:normal;
+            }
+            .d1 {
+                font-size:x-large;
+                padding-left: 1px;
+                /*margin-left:0em;*/
+                border:ridge 1px #9999AC;
+            }
+            .d2{
+                font-size:large;
+                padding-left: 1px;
+                /*margin-left:1em;*/
+                border:ridge 1px #9999AC;
+
+            }
+            .d3{
+                font-size:medium;
+                padding-left: 1px;
+                /*margin-left:2em;*/
+                border:ridge 1px #9999AC;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <p>ばかねむい。</p>
+        </header>
+        <main>
+            <h2>しじみライブラリ</h2>
+            <nav>
+                <details class="d1">
+                    <summary >アルゴリズム</summary>
+                    <details class="d2">
+                        <summary >グラフ</summary>
+                        <details class="d3">
+                            <summary>木</summary>
+                            <ul>
+                                <li><a href="#">オイラーツアー</a></li>
+                                <li><a href="#">オイラーツアー13</a></li>
+                                <li><a href="#">オイラーツアー241</a></li>
+                            </ul>
+                        </details>
+                        <details class="d3">
+                            <summary>shortest path</summary>
+                            <!-- ここはリストにする -->
+                            <a href="#">経路数</a>
+                        </details>
+                    </details>
+                </details>
+
+                <details class="d1">
+                    <summary>ヒューリスティック</summary>
+                    <details class="d2">
+                        <summary>乱数生成</summary>
+                        <a href="#">XOR Shift</a>
+                    </details>
+                </details>
+            </nav>
+            <h2>追加予定メモ</h2>
+            <nav>
+                <ul>
+                    <li>ランレングス圧縮</li>
+                    <li>XOR-shift</li>
+                    <li>dsu</li>
+                    <li>dsu-with-potential</li>
+                    <li>fenwick-tree</li>
+                    <li>interval-arithmetic-fenwick-tree</li>
+                </ul>
+            </nav>
+        </main>
+    </body>
+</html>
