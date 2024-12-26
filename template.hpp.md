@@ -6,6 +6,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test-verify/fenwick-tree1.test.cpp
     title: test-verify/fenwick-tree1.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test-verify/fenwick-tree2.test.cpp
+    title: test-verify/fenwick-tree2.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -55,6 +58,7 @@ data:
   timestamp: '2024-12-26 11:11:22+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test-verify/fenwick-tree2.test.cpp
   - test-verify/fenwick-tree1.test.cpp
 documentation_of: template.hpp
 layout: document

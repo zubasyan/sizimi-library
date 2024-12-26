@@ -14,6 +14,9 @@ data:
   - name: structure
     pages:
     - icon: ':heavy_check_mark:'
+      path: structure/RAQfenwick-tree.hpp
+      title: structure/RAQfenwick-tree.hpp
+    - icon: ':heavy_check_mark:'
       path: structure/fenwick-tree.hpp
       title: structure/fenwick-tree.hpp
   - name: .
@@ -35,5 +38,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: test-verify/fenwick-tree1.test.cpp
       title: test-verify/fenwick-tree1.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test-verify/fenwick-tree2.test.cpp
+      title: test-verify/fenwick-tree2.test.cpp
 layout: toppage
 ---
