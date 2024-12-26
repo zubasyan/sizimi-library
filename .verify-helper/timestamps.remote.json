@@ -2,5 +2,6 @@
 "example.test.cpp": "2024-11-27 10:58:11 +0900",
 "test-verify/cumulative-sum.test.cpp": "2024-11-29 16:29:38 +0900",
 "test-verify/fenwick-tree1.test.cpp": "2024-12-26 12:43:47 +0900",
-"test-verify/fenwick-tree2.test.cpp": "2024-12-26 11:54:25 +0900"
+"test-verify/fenwick-tree2.test.cpp": "2024-12-26 11:54:25 +0900",
+"test-verify/fenwick-tree3.test.cpp": "2024-12-26 13:41:17 +0900"
 }
