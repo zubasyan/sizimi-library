@@ -34,7 +34,11 @@ const int di8[8] = {0, 0, 1, 1, 1, -1, -1, -1},
 #define Rrep(i, n) for (int i = n - 1; i >= 0; i--)
 #define Rrep1(i, n) for (int i = n; i > 0; i--)
 #define all(a) a.begin(), a.end()
+#if __cplusplus >= 202003L
 #define sz(a) ssize(a)
+#else
+#define sz(a) (a.size())
+#endif
 #define yesno(ans) cout << ((ans) ? "Yes\n" : "No\n")
 #define YESNO(ans) cout << ((ans) ? "YES\n" : "NO\n")
 #define INF ((ll)2e18)
