@@ -31,20 +31,21 @@ data:
     \ -1},\n          dj8[8] = {1, -1, 0, -1, 1, 0, -1, 1};\n\n#define rep(i, n) for\
     \ (int i = 0; i < n; i++)\n#define rep1(i, n) for (int i = 1; i <= n; i++)\n#define\
     \ Rrep(i, n) for (int i = n - 1; i >= 0; i--)\n#define Rrep1(i, n) for (int i\
-    \ = n; i > 0; i--)\n#define all(a) a.begin(), a.end()\n#define sz(a) ssize(a)\n\
-    #define yesno(ans) cout << ((ans) ? \"Yes\\n\" : \"No\\n\")\n#define YESNO(ans)\
-    \ cout << ((ans) ? \"YES\\n\" : \"NO\\n\")\n#define INF ((ll)2e18)\n#define IINF\
-    \ ((int)(1e9 + 5e8))\nconst double PI = 3.1415926535897932384626;\n#define eb\
-    \ emplace_back\n#define pb push_back\n#line 2 \"test-verify/fenwick-tree1.test.cpp\"\
-    \n\n#line 2 \"structure/fenwick-tree.hpp\"\ntemplate <class T>\nstruct fenwick_tree\
-    \ {\npublic:\n    fenwick_tree() : _n(0) {}\n    explicit fenwick_tree(int n)\
-    \ : _n(n + 1), data(n + 1, 0) {}\n\n    void add(int p, T x) {\n        assert(0\
-    \ <= p && p < _n);\n        p++; // 1-origin\u306B\u5909\u63DB\n        while\
-    \ (p < _n) {\n            data[p] += x;\n            p += p & -p;\n        }\n\
-    \    }\n\n    T sum(int l, int r) {\n        assert(0 <= l && l <= r && r <= _n);\n\
-    \        r++, l++; // 1-origin\u306B\u5909\u63DB\n        return sum(r - 1) -\
-    \ sum(l - 1);\n    }\n\n    int lower_bound(T w) { // [0,x)\u03A3a_i >=w \u3068\
-    \u306A\u308B\u6700\u5C0F\u306Ex (\u5916\u90E8\u306E\u6DFB\u3048\u5B57\u30670-origin)\n\
+    \ = n; i > 0; i--)\n#define all(a) a.begin(), a.end()\n#if __cplusplus >= 202003L\n\
+    #define sz(a) ssize(a)\n#else\n#define sz(a) (a.size())\n#endif\n#define yesno(ans)\
+    \ cout << ((ans) ? \"Yes\\n\" : \"No\\n\")\n#define YESNO(ans) cout << ((ans)\
+    \ ? \"YES\\n\" : \"NO\\n\")\n#define INF ((ll)2e18)\n#define IINF ((int)(1e9 +\
+    \ 5e8))\nconst double PI = 3.1415926535897932384626;\n#define eb emplace_back\n\
+    #define pb push_back\n#line 2 \"test-verify/fenwick-tree1.test.cpp\"\n\n#line\
+    \ 2 \"structure/fenwick-tree.hpp\"\ntemplate <class T>\nstruct fenwick_tree {\n\
+    public:\n    fenwick_tree() : _n(0) {}\n    explicit fenwick_tree(int n) : _n(n\
+    \ + 1), data(n + 1, 0) {}\n\n    void add(int p, T x) {\n        assert(0 <= p\
+    \ && p < _n);\n        p++; // 1-origin\u306B\u5909\u63DB\n        while (p <\
+    \ _n) {\n            data[p] += x;\n            p += p & -p;\n        }\n    }\n\
+    \n    T sum(int l, int r) {\n        assert(0 <= l && l <= r && r <= _n);\n  \
+    \      r++, l++; // 1-origin\u306B\u5909\u63DB\n        return sum(r - 1) - sum(l\
+    \ - 1);\n    }\n\n    int lower_bound(T w) { // [0,x)\u03A3a_i >=w \u3068\u306A\
+    \u308B\u6700\u5C0F\u306Ex (\u5916\u90E8\u306E\u6DFB\u3048\u5B57\u30670-origin)\n\
     \        if (w <= 0)\n            return 0;\n        else {\n            int x\
     \ = 0, r = 1;\n            while (r < _n)\n                r = r << 1;\n     \
     \       for (int len = r; len > 0; len = len >> 1) {\n                if (x +\
@@ -77,7 +78,7 @@ data:
   isVerificationFile: true
   path: test-verify/fenwick-tree1.test.cpp
   requiredBy: []
-  timestamp: '2024-12-26 12:43:47+09:00'
+  timestamp: '2024-12-26 21:12:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test-verify/fenwick-tree1.test.cpp

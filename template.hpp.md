@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':heavy_check_mark:'
+    path: graph-other/scc.hpp
+    title: graph-other/scc.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test-verify/fenwick-tree1.test.cpp
@@ -12,6 +15,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test-verify/fenwick-tree3.test.cpp
     title: test-verify/fenwick-tree3.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test-verify/scc.test.cpp
+    title: test-verify/scc.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -31,11 +37,12 @@ data:
     \ -1},\n          dj8[8] = {1, -1, 0, -1, 1, 0, -1, 1};\n\n#define rep(i, n) for\
     \ (int i = 0; i < n; i++)\n#define rep1(i, n) for (int i = 1; i <= n; i++)\n#define\
     \ Rrep(i, n) for (int i = n - 1; i >= 0; i--)\n#define Rrep1(i, n) for (int i\
-    \ = n; i > 0; i--)\n#define all(a) a.begin(), a.end()\n#define sz(a) ssize(a)\n\
-    #define yesno(ans) cout << ((ans) ? \"Yes\\n\" : \"No\\n\")\n#define YESNO(ans)\
-    \ cout << ((ans) ? \"YES\\n\" : \"NO\\n\")\n#define INF ((ll)2e18)\n#define IINF\
-    \ ((int)(1e9 + 5e8))\nconst double PI = 3.1415926535897932384626;\n#define eb\
-    \ emplace_back\n#define pb push_back\n"
+    \ = n; i > 0; i--)\n#define all(a) a.begin(), a.end()\n#if __cplusplus >= 202003L\n\
+    #define sz(a) ssize(a)\n#else\n#define sz(a) (a.size())\n#endif\n#define yesno(ans)\
+    \ cout << ((ans) ? \"Yes\\n\" : \"No\\n\")\n#define YESNO(ans) cout << ((ans)\
+    \ ? \"YES\\n\" : \"NO\\n\")\n#define INF ((ll)2e18)\n#define IINF ((int)(1e9 +\
+    \ 5e8))\nconst double PI = 3.1415926535897932384626;\n#define eb emplace_back\n\
+    #define pb push_back\n"
   code: "#include <bits/stdc++.h>\nusing namespace std;\nrandom_device seed_gen;\n\
     mt19937 rnd(seed_gen());\n\nusing ll = long long;\nusing ull = unsigned long long;\n\
     using vi = vector<int>;\nusing vvi = vector<vi>;\nusing vvvi = vector<vvi>;\n\
@@ -50,20 +57,23 @@ data:
     \ -1, 1, 0, -1, 1};\n\n#define rep(i, n) for (int i = 0; i < n; i++)\n#define\
     \ rep1(i, n) for (int i = 1; i <= n; i++)\n#define Rrep(i, n) for (int i = n -\
     \ 1; i >= 0; i--)\n#define Rrep1(i, n) for (int i = n; i > 0; i--)\n#define all(a)\
-    \ a.begin(), a.end()\n#define sz(a) ssize(a)\n#define yesno(ans) cout << ((ans)\
-    \ ? \"Yes\\n\" : \"No\\n\")\n#define YESNO(ans) cout << ((ans) ? \"YES\\n\" :\
-    \ \"NO\\n\")\n#define INF ((ll)2e18)\n#define IINF ((int)(1e9 + 5e8))\nconst double\
-    \ PI = 3.1415926535897932384626;\n#define eb emplace_back\n#define pb push_back\n"
+    \ a.begin(), a.end()\n#if __cplusplus >= 202003L\n#define sz(a) ssize(a)\n#else\n\
+    #define sz(a) (a.size())\n#endif\n#define yesno(ans) cout << ((ans) ? \"Yes\\\
+    n\" : \"No\\n\")\n#define YESNO(ans) cout << ((ans) ? \"YES\\n\" : \"NO\\n\")\n\
+    #define INF ((ll)2e18)\n#define IINF ((int)(1e9 + 5e8))\nconst double PI = 3.1415926535897932384626;\n\
+    #define eb emplace_back\n#define pb push_back\n"
   dependsOn: []
   isVerificationFile: false
   path: template.hpp
-  requiredBy: []
-  timestamp: '2024-12-26 11:11:22+09:00'
+  requiredBy:
+  - graph-other/scc.hpp
+  timestamp: '2024-12-26 21:12:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test-verify/fenwick-tree2.test.cpp
   - test-verify/fenwick-tree1.test.cpp
   - test-verify/fenwick-tree3.test.cpp
+  - test-verify/scc.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:

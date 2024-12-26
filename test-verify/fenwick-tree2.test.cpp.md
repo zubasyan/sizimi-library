@@ -31,12 +31,13 @@ data:
     \ -1},\n          dj8[8] = {1, -1, 0, -1, 1, 0, -1, 1};\n\n#define rep(i, n) for\
     \ (int i = 0; i < n; i++)\n#define rep1(i, n) for (int i = 1; i <= n; i++)\n#define\
     \ Rrep(i, n) for (int i = n - 1; i >= 0; i--)\n#define Rrep1(i, n) for (int i\
-    \ = n; i > 0; i--)\n#define all(a) a.begin(), a.end()\n#define sz(a) ssize(a)\n\
-    #define yesno(ans) cout << ((ans) ? \"Yes\\n\" : \"No\\n\")\n#define YESNO(ans)\
-    \ cout << ((ans) ? \"YES\\n\" : \"NO\\n\")\n#define INF ((ll)2e18)\n#define IINF\
-    \ ((int)(1e9 + 5e8))\nconst double PI = 3.1415926535897932384626;\n#define eb\
-    \ emplace_back\n#define pb push_back\n#line 2 \"test-verify/fenwick-tree2.test.cpp\"\
-    \n\n#line 2 \"structure/RAQfenwick-tree.hpp\"\ntemplate <class T>\nstruct fenwick_tree\
+    \ = n; i > 0; i--)\n#define all(a) a.begin(), a.end()\n#if __cplusplus >= 202003L\n\
+    #define sz(a) ssize(a)\n#else\n#define sz(a) (a.size())\n#endif\n#define yesno(ans)\
+    \ cout << ((ans) ? \"Yes\\n\" : \"No\\n\")\n#define YESNO(ans) cout << ((ans)\
+    \ ? \"YES\\n\" : \"NO\\n\")\n#define INF ((ll)2e18)\n#define IINF ((int)(1e9 +\
+    \ 5e8))\nconst double PI = 3.1415926535897932384626;\n#define eb emplace_back\n\
+    #define pb push_back\n#line 2 \"test-verify/fenwick-tree2.test.cpp\"\n\n#line\
+    \ 2 \"structure/RAQfenwick-tree.hpp\"\ntemplate <class T>\nstruct fenwick_tree\
     \ {\npublic:\n    fenwick_tree() : _n(0) {}\n    explicit fenwick_tree(int n)\
     \ : _n(n + 1), data(n + 1, 0) {}\n\n    void add(int p, T x) {\n        assert(0\
     \ <= p && p < _n);\n        p++; // 1-origin\u306B\u5909\u63DB\n        while\
@@ -90,7 +91,7 @@ data:
   isVerificationFile: true
   path: test-verify/fenwick-tree2.test.cpp
   requiredBy: []
-  timestamp: '2024-12-26 11:54:25+09:00'
+  timestamp: '2024-12-26 21:12:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test-verify/fenwick-tree2.test.cpp

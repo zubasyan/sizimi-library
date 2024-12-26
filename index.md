@@ -11,6 +11,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: dp/cumlative-sum.hpp
       title: dp/cumlative-sum.hpp
+  - name: graph-other
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: graph-other/scc.hpp
+      title: graph-other/scc.hpp
   - name: structure
     pages:
     - icon: ':heavy_check_mark:'
@@ -47,5 +52,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: test-verify/fenwick-tree3.test.cpp
       title: test-verify/fenwick-tree3.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test-verify/scc.test.cpp
+      title: test-verify/scc.test.cpp
 layout: toppage
 ---
