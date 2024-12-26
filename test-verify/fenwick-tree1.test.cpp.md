@@ -77,7 +77,7 @@ data:
   isVerificationFile: true
   path: test-verify/fenwick-tree1.test.cpp
   requiredBy: []
-  timestamp: '2024-12-26 11:11:22+09:00'
+  timestamp: '2024-12-26 12:43:47+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test-verify/fenwick-tree1.test.cpp

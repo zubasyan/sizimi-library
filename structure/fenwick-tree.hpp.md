@@ -45,12 +45,12 @@ data:
     \    }\n            }\n            return x + 1;\n        }\n    }\n\nprivate:\n\
     \    int _n;\n    vector<T> data;\n    T sum(int r) {\n        T ret = 0;\n  \
     \      while (r > 0) {\n            ret += data[r];\n            r -= r & -r;\n\
-    \        }\n        return ret;\n    }\n};"
+    \        }\n        return ret;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: structure/fenwick-tree.hpp
   requiredBy: []
-  timestamp: '2024-12-26 11:11:22+09:00'
+  timestamp: '2024-12-26 12:43:47+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test-verify/fenwick-tree1.test.cpp
