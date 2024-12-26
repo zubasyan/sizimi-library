@@ -19,6 +19,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/fenwick-tree.hpp
       title: structure/fenwick-tree.hpp
+    - icon: ':heavy_check_mark:'
+      path: structure/fenwick-tree2D.hpp
+      title: structure/fenwick-tree2D.hpp
   - name: .
     pages:
     - icon: ':heavy_check_mark:'
@@ -41,5 +44,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: test-verify/fenwick-tree2.test.cpp
       title: test-verify/fenwick-tree2.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test-verify/fenwick-tree3.test.cpp
+      title: test-verify/fenwick-tree3.test.cpp
 layout: toppage
 ---

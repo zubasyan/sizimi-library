@@ -9,6 +9,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test-verify/fenwick-tree2.test.cpp
     title: test-verify/fenwick-tree2.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test-verify/fenwick-tree3.test.cpp
+    title: test-verify/fenwick-tree3.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -60,6 +63,7 @@ data:
   verifiedWith:
   - test-verify/fenwick-tree2.test.cpp
   - test-verify/fenwick-tree1.test.cpp
+  - test-verify/fenwick-tree3.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:
