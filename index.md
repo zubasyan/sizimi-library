@@ -3,7 +3,7 @@ data:
   libraryCategories:
   - name: compression
     pages:
-    - icon: ':x:'
+    - icon: ':warning:'
       path: compression/run-length-encoding.hpp
       title: compression/run-length-encoding.hpp
   - name: dp
@@ -11,6 +11,16 @@ data:
     - icon: ':heavy_check_mark:'
       path: dp/cumlative-sum.hpp
       title: dp/cumlative-sum.hpp
+  - name: structure
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: structure/fenwick-tree.hpp
+      title: structure/fenwick-tree.hpp
+  - name: .
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: template.hpp
+      title: template.hpp
   verificationCategories:
   - name: .
     pages:
@@ -22,8 +32,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: test-verify/cumulative-sum.test.cpp
       title: test-verify/cumulative-sum.test.cpp
-    - icon: ':x:'
-      path: test-verify/run-length-encode.test.cpp
-      title: test-verify/run-length-encode.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test-verify/fenwick-tree1.test.cpp
+      title: test-verify/fenwick-tree1.test.cpp
 layout: toppage
 ---

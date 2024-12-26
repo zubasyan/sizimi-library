@@ -2,13 +2,10 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith:
-  - icon: ':x:'
-    path: test-verify/run-length-encode.test.cpp
-    title: test-verify/run-length-encode.test.cpp
-  _isVerificationFailed: true
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
   _pathExtension: hpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':warning:'
   attributes:
     links: []
   bundledCode: "#line 1 \"compression/run-length-encoding.hpp\"\n#include <bits/stdc++.h>\n\
@@ -43,9 +40,8 @@ data:
   path: compression/run-length-encoding.hpp
   requiredBy: []
   timestamp: '2024-12-06 16:25:21+09:00'
-  verificationStatus: LIBRARY_ALL_WA
-  verifiedWith:
-  - test-verify/run-length-encode.test.cpp
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
 documentation_of: compression/run-length-encoding.hpp
 layout: document
 redirect_from:
