@@ -4,5 +4,6 @@
 "test-verify/fenwick-tree1.test.cpp": "2024-12-26 21:12:26 +0900",
 "test-verify/fenwick-tree2.test.cpp": "2024-12-26 21:12:26 +0900",
 "test-verify/fenwick-tree3.test.cpp": "2024-12-26 21:12:26 +0900",
+"test-verify/lca_tree_doubling.test.cpp": "2024-12-27 16:41:37 +0900",
 "test-verify/scc.test.cpp": "2024-12-26 21:12:26 +0900"
 }
