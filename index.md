@@ -27,6 +27,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: structure/fenwick-tree2D.hpp
       title: structure/fenwick-tree2D.hpp
+    - icon: ':heavy_check_mark:'
+      path: structure/sparse-table.hpp
+      title: structure/sparse-table.hpp
   - name: .
     pages:
     - icon: ':heavy_check_mark:'
@@ -63,5 +66,8 @@ data:
     - icon: ':heavy_check_mark:'
       path: test-verify/scc.test.cpp
       title: test-verify/scc.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test-verify/sparse-table.test.cpp
+      title: test-verify/sparse-table.test.cpp
 layout: toppage
 ---

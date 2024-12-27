@@ -6,6 +6,9 @@ data:
     path: graph-other/scc.hpp
     title: graph-other/scc.hpp
   - icon: ':heavy_check_mark:'
+    path: structure/sparse-table.hpp
+    title: structure/sparse-table.hpp
+  - icon: ':heavy_check_mark:'
     path: tree/lca_tree.hpp
     title: tree/lca_tree.hpp
   _extendedVerifiedWith:
@@ -24,6 +27,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test-verify/scc.test.cpp
     title: test-verify/scc.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test-verify/sparse-table.test.cpp
+    title: test-verify/sparse-table.test.cpp
   _isVerificationFailed: false
   _pathExtension: hpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -74,6 +80,7 @@ data:
   requiredBy:
   - graph-other/scc.hpp
   - tree/lca_tree.hpp
+  - structure/sparse-table.hpp
   timestamp: '2024-12-26 21:12:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
@@ -81,6 +88,7 @@ data:
   - test-verify/fenwick-tree2.test.cpp
   - test-verify/fenwick-tree1.test.cpp
   - test-verify/fenwick-tree3.test.cpp
+  - test-verify/sparse-table.test.cpp
   - test-verify/scc.test.cpp
 documentation_of: template.hpp
 layout: document
