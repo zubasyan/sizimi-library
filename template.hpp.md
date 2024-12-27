@@ -5,6 +5,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: graph-other/scc.hpp
     title: graph-other/scc.hpp
+  - icon: ':heavy_check_mark:'
+    path: tree/lca_tree.hpp
+    title: tree/lca_tree.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test-verify/fenwick-tree1.test.cpp
@@ -15,6 +18,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test-verify/fenwick-tree3.test.cpp
     title: test-verify/fenwick-tree3.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test-verify/lca_tree_doubling.test.cpp
+    title: test-verify/lca_tree_doubling.test.cpp
   - icon: ':heavy_check_mark:'
     path: test-verify/scc.test.cpp
     title: test-verify/scc.test.cpp
@@ -67,9 +73,11 @@ data:
   path: template.hpp
   requiredBy:
   - graph-other/scc.hpp
+  - tree/lca_tree.hpp
   timestamp: '2024-12-26 21:12:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test-verify/lca_tree_doubling.test.cpp
   - test-verify/fenwick-tree2.test.cpp
   - test-verify/fenwick-tree1.test.cpp
   - test-verify/fenwick-tree3.test.cpp
