@@ -1,0 +1,20 @@
+\doxysection{eulers-\/phi-\/function.hpp}
+\hypertarget{eulers-phi-function_8hpp_source}{}\label{eulers-phi-function_8hpp_source}\index{number-\/theory/eulers-\/phi-\/function.hpp@{number-\/theory/eulers-\/phi-\/function.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}../template.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00009}00009\ ll\ phi(ll\ n)\ \{}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00010}00010\ \ \ \ \ ll\ ret\ =\ n;}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordflow}{for}\ (ll\ i\ =\ 2;\ i\ *\ i\ <=\ n;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ \%\ i\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ ret\ -\/=\ ret\ /\ i;}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (n\ \%\ i\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ n\ /=\ i;}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00017}00017\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (n\ >\ 1)}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ ret\ -\/=\ ret\ /\ n;}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00020}00020\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{eulers-phi-function_8hpp_source_l00021}00021\ \}}
+
+\end{DoxyCode}

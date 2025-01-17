@@ -1,0 +1,44 @@
+\doxysection{run-\/length-\/encoding.hpp}
+\hypertarget{run-length-encoding_8hpp_source}{}\label{run-length-encoding_8hpp_source}\index{compression/run-\/length-\/encoding.hpp@{compression/run-\/length-\/encoding.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <bits/stdc++.h>}}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00002}00002\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00003}00003\ vector<pair<char,\ int>>\ encode(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&str)\ \{}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00004}00004\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ int(str.size());}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00005}00005\ \ \ \ \ vector<pair<char,\ int>>\ ret;}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00006}00006\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ l\ =\ 0;\ l\ <\ n;)\ \{}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00007}00007\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ r\ =\ l\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (r\ <\ n\ \&\&\ str[l]\ ==\ str[r])}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \ \ \ \ r++;}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00010}00010\ \ \ \ \ \ \ \ \ ret.push\_back(\{str[l],\ r\ -\/\ l\});}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00011}00011\ \ \ \ \ \ \ \ \ l\ =\ r;}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00012}00012\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00013}00013\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00015}00015\ \textcolor{keywordtype}{string}\ decode(\textcolor{keyword}{const}\ \textcolor{keywordtype}{string}\ \&str)\ \{}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ int(str.size());}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{string}\ ret\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ l\ =\ 0;\ l\ <\ n;)\ \{}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ r\ =\ l\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (r\ <\ n\ \&\&\ \textcolor{charliteral}{'0'}\ <=\ str[r]\ \&\&\ str[r]\ <=\ \textcolor{charliteral}{'9'})}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ r++;}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ num\ =\ stoi(str.substr(l\ +\ 1,\ r\ -\/\ l));}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ num;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ ret.push\_back(str[l]);}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ l\ =\ r;}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00027}00027\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00029}00029\ \}}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00030}00030\ \textcolor{keywordtype}{string}\ decode(\textcolor{keyword}{const}\ vector<pair<char,\ int>>\ \&code)\ \{}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{string}\ ret\ =\ \textcolor{stringliteral}{"{}"{}};}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ p\ :\ code)\ \{}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ p.second;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ ret.push\_back(p.first);}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{run-length-encoding_8hpp_source_l00038}00038\ \}}
+
+\end{DoxyCode}

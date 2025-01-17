@@ -1,0 +1,412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>sizimi-lib: scc_graph 構造体</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">sizimi-lib<span id="projectnumber">&#160;1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="structscc__graph-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">scc_graph 構造体</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a1e72d05b33f0baf96e4c22080ca8bca2" id="r_a1e72d05b33f0baf96e4c22080ca8bca2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscc__graph.html#a1e72d05b33f0baf96e4c22080ca8bca2">scc_graph</a> (int n)</td></tr>
+<tr class="separator:a1e72d05b33f0baf96e4c22080ca8bca2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3895ccb375407c2a879f42f6ed480cf4" id="r_a3895ccb375407c2a879f42f6ed480cf4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscc__graph.html#a3895ccb375407c2a879f42f6ed480cf4">add_edge</a> (int from, int to)</td></tr>
+<tr class="separator:a3895ccb375407c2a879f42f6ed480cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c9b56ba8284fe6edd500e1af829b002" id="r_a8c9b56ba8284fe6edd500e1af829b002"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscc__graph.html#a8c9b56ba8284fe6edd500e1af829b002">dfs</a> (int v)</td></tr>
+<tr class="separator:a8c9b56ba8284fe6edd500e1af829b002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac62850942e352a1f8e94c758fbd139ad" id="r_ac62850942e352a1f8e94c758fbd139ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscc__graph.html#ac62850942e352a1f8e94c758fbd139ad">rdfs</a> (int v, int k)</td></tr>
+<tr class="separator:ac62850942e352a1f8e94c758fbd139ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaa4dbabf66ecdbece61cff995bb569ce" id="r_aaa4dbabf66ecdbece61cff995bb569ce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscc__graph.html#aaa4dbabf66ecdbece61cff995bb569ce">scc</a> ()</td></tr>
+<tr class="separator:aaa4dbabf66ecdbece61cff995bb569ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:acae0a4c9af7828e476e6f05b9796a0a7" id="r_acae0a4c9af7828e476e6f05b9796a0a7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscc__graph.html#acae0a4c9af7828e476e6f05b9796a0a7">_n</a></td></tr>
+<tr class="separator:acae0a4c9af7828e476e6f05b9796a0a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a601b8fe9e21f5d878efad7d2a47988d2" id="r_a601b8fe9e21f5d878efad7d2a47988d2"><td class="memItemLeft" align="right" valign="top">vvi&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscc__graph.html#a601b8fe9e21f5d878efad7d2a47988d2">G</a></td></tr>
+<tr class="separator:a601b8fe9e21f5d878efad7d2a47988d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8ef1449f251c5b5279a1e98a824c9ef" id="r_ab8ef1449f251c5b5279a1e98a824c9ef"><td class="memItemLeft" align="right" valign="top">vvi&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscc__graph.html#ab8ef1449f251c5b5279a1e98a824c9ef">rG</a></td></tr>
+<tr class="separator:ab8ef1449f251c5b5279a1e98a824c9ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f8c09b3d65fd31931259fc2b87c4322" id="r_a7f8c09b3d65fd31931259fc2b87c4322"><td class="memItemLeft" align="right" valign="top">vi&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscc__graph.html#a7f8c09b3d65fd31931259fc2b87c4322">used</a></td></tr>
+<tr class="separator:a7f8c09b3d65fd31931259fc2b87c4322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47249be154fc86106656c0f095a1295e" id="r_a47249be154fc86106656c0f095a1295e"><td class="memItemLeft" align="right" valign="top">vi&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscc__graph.html#a47249be154fc86106656c0f095a1295e">vs</a></td></tr>
+<tr class="separator:a47249be154fc86106656c0f095a1295e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e334ad9986355ea3629e3b61c04420" id="r_ad4e334ad9986355ea3629e3b61c04420"><td class="memItemLeft" align="right" valign="top">vi&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structscc__graph.html#ad4e334ad9986355ea3629e3b61c04420">cmp</a></td></tr>
+<tr class="separator:ad4e334ad9986355ea3629e3b61c04420"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock">
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00002">2</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="ac6cd11d99d9ed038afc739afb71f5cef" name="ac6cd11d99d9ed038afc739afb71f5cef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6cd11d99d9ed038afc739afb71f5cef">&#9670;&#160;</a></span>scc_graph() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">scc_graph::scc_graph </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00004">4</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a1e72d05b33f0baf96e4c22080ca8bca2" name="a1e72d05b33f0baf96e4c22080ca8bca2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e72d05b33f0baf96e4c22080ca8bca2">&#9670;&#160;</a></span>scc_graph() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">scc_graph::scc_graph </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00005">5</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a3895ccb375407c2a879f42f6ed480cf4" name="a3895ccb375407c2a879f42f6ed480cf4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3895ccb375407c2a879f42f6ed480cf4">&#9670;&#160;</a></span>add_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scc_graph::add_edge </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>from</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00006">6</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a8c9b56ba8284fe6edd500e1af829b002" name="a8c9b56ba8284fe6edd500e1af829b002"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c9b56ba8284fe6edd500e1af829b002">&#9670;&#160;</a></span>dfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scc_graph::dfs </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00012">12</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ac62850942e352a1f8e94c758fbd139ad" name="ac62850942e352a1f8e94c758fbd139ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac62850942e352a1f8e94c758fbd139ad">&#9670;&#160;</a></span>rdfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scc_graph::rdfs </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>k</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00020">20</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aaa4dbabf66ecdbece61cff995bb569ce" name="aaa4dbabf66ecdbece61cff995bb569ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa4dbabf66ecdbece61cff995bb569ce">&#9670;&#160;</a></span>scc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void scc_graph::scc </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00028">28</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="acae0a4c9af7828e476e6f05b9796a0a7" name="acae0a4c9af7828e476e6f05b9796a0a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acae0a4c9af7828e476e6f05b9796a0a7">&#9670;&#160;</a></span>_n</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int scc_graph::_n</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00040">40</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ad4e334ad9986355ea3629e3b61c04420" name="ad4e334ad9986355ea3629e3b61c04420"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e334ad9986355ea3629e3b61c04420">&#9670;&#160;</a></span>cmp</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vi scc_graph::cmp</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00044">44</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a601b8fe9e21f5d878efad7d2a47988d2" name="a601b8fe9e21f5d878efad7d2a47988d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a601b8fe9e21f5d878efad7d2a47988d2">&#9670;&#160;</a></span>G</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vvi scc_graph::G</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00041">41</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="ab8ef1449f251c5b5279a1e98a824c9ef" name="ab8ef1449f251c5b5279a1e98a824c9ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8ef1449f251c5b5279a1e98a824c9ef">&#9670;&#160;</a></span>rG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vvi scc_graph::rG</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00041">41</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a7f8c09b3d65fd31931259fc2b87c4322" name="a7f8c09b3d65fd31931259fc2b87c4322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f8c09b3d65fd31931259fc2b87c4322">&#9670;&#160;</a></span>used</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vi scc_graph::used</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00042">42</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a47249be154fc86106656c0f095a1295e" name="a47249be154fc86106656c0f095a1295e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47249be154fc86106656c0f095a1295e">&#9670;&#160;</a></span>vs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vi scc_graph::vs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="scc_8hpp_source.html">scc.hpp</a> の <a class="el" href="scc_8hpp_source.html#l00043">43</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>この構造体詳解は次のファイルから抽出されました:<ul>
+<li>graph-other/<a class="el" href="scc_8hpp_source.html">scc.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,28 @@
+\doxysection{example.\+test.\+cpp}
+\hypertarget{example_8test_8cpp_source}{}\label{example_8test_8cpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#define\ PROBLEM\ "{}https://onlinejudge.u-\/aizu.ac.jp/courses/lesson/1/ALDS1/4/ALDS1\_4\_B"{}}}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#define\ REP(i,\ n)\ for\ (int\ i\ =\ 0;\ (i)\ <\ (int)(n);\ ++\ (i))}}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#define\ ALL(x)\ std::begin(x),\ std::end(x)}}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00007}00007\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00009}00009\ \textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{keywordtype}{int}\ n;\ cin\ >>\ n;}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00011}00011\ \ \ \ \ vector<int>\ s(n);}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00012}00012\ \ \ \ \ REP\ (i,\ n)\ \{}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ cin\ >>\ s[i];}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00014}00014\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{int}\ q;\ cin\ >>\ q;}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{int}\ cnt\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{while}\ (q\ -\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ t\_i;\ cin\ >>\ t\_i;}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ cnt\ +=\ binary\_search(ALL(s),\ t\_i);}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00021}00021\ \ \ \ \ cout\ <<\ cnt\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{example_8test_8cpp_source_l00023}00023\ \}}
+
+\end{DoxyCode}

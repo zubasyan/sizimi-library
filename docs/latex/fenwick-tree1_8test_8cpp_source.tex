@@ -1,0 +1,40 @@
+\doxysection{fenwick-\/tree1.test.\+cpp}
+\hypertarget{fenwick-tree1_8test_8cpp_source}{}\label{fenwick-tree1_8test_8cpp_source}\index{test-\/verify/fenwick-\/tree1.test.cpp@{test-\/verify/fenwick-\/tree1.test.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}../template.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}../structure/fenwick-\/tree.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#define\ PROBLEM\ "{}https://onlinejudge.u-\/aizu.ac.jp/courses/library/3/DSL/2/DSL\_2\_B"{}}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00006}00006\ \textcolor{keywordtype}{void}\ solve()\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00007}00007\ \ \ \ \ \textcolor{keywordtype}{int}\ N,\ Q;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00008}00008\ \ \ \ \ cin\ >>\ N\ >>\ Q;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00009}00009\ \ \ \ \ \mbox{\hyperlink{structfenwick__tree}{fenwick\_tree<ll>}}\ ft(N);}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00010}00010\ \ \ \ \ \textcolor{keywordflow}{while}\ (Q-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ c;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ cin\ >>\ c;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (c\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ x\ >>\ y;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ x-\/-\/;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ ft.add(x,\ y);}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ x\ >>\ y;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ x-\/-\/;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ ft.sum(x,\ y)\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00025}00025\ \}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00027}00027\ \textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{int}\ T\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{comment}{//\ cin>>T;}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{while}\ (T-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ solve();}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00032}00032\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree1_8test_8cpp_source_l00034}00034\ \}}
+
+\end{DoxyCode}

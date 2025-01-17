@@ -1,0 +1,42 @@
+\doxysection{fenwick-\/tree2D.hpp}
+\hypertarget{fenwick-tree2D_8hpp_source}{}\label{fenwick-tree2D_8hpp_source}\index{structure/fenwick-\/tree2D.hpp@{structure/fenwick-\/tree2D.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00002}00002\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00003}\mbox{\hyperlink{structfenwick__tree2D}{00003}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfenwick__tree2D}{fenwick\_tree2D}}\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00004}00004\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00005}00005\ \ \ \ \ \mbox{\hyperlink{structfenwick__tree2D}{fenwick\_tree2D}}()\ :\ \_h(0),\ \_w(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00006}00006\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structfenwick__tree2D}{fenwick\_tree2D}}(\textcolor{keywordtype}{int}\ h,\ \textcolor{keywordtype}{int}\ w)\ :\ \_h(h\ +\ 1),\ \_w(w\ +\ 1),\ data(h\ +\ 1,\ vector<T>(w\ +\ 1,\ 0))\ \{\}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordtype}{void}\ add(\textcolor{keywordtype}{int}\ r,\ \textcolor{keywordtype}{int}\ c,\ T\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00009}00009\ \ \ \ \ \ \ \ \ r++,\ c++;\ \textcolor{comment}{//\ 1-\/originに変換}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ r;\ i\ <\ \_h;\ i\ +=\ (i\ \&\ -\/i))\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ c;\ j\ <\ \_w;\ j\ +=\ (j\ \&\ -\/j))\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data[i][j]\ +=\ x;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00015}00015\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00017}00017\ \ \ \ \ T\ sum(\textcolor{keywordtype}{int}\ r,\ \textcolor{keywordtype}{int}\ c)\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ T\ ret\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ r++,\ c++;\ //\ 1-\/originに変換\ r++,c++}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ r-\/-\/,\ c-\/-\/;\ //\ 開区間に変換\ r-\/-\/,c-\/-\/\ -\/>あわせるとかわらない}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ r;\ i\ >\ 0;\ i\ -\/=\ (i\ \&\ -\/i))\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ c;\ j\ >\ 0;\ j\ -\/=\ (j\ \&\ -\/j))\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ret\ +=\ data[i][j];}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00027}00027\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00029}00029\ \ \ \ \ T\ sum(\textcolor{keywordtype}{int}\ r1,\ \textcolor{keywordtype}{int}\ c1,\ \textcolor{keywordtype}{int}\ r2,\ \textcolor{keywordtype}{int}\ c2)\ \{}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ +sum(r2,\ c2)\ +\ sum(r1,\ c1)\ -\/\ sum(r1,\ c2)\ -\/\ sum(r2,\ c1);}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00033}00033\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{int}\ \_h,\ \_w;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00035}00035\ \ \ \ \ vector<vector<T>>\ data;}
+\DoxyCodeLine{\Hypertarget{fenwick-tree2D_8hpp_source_l00036}00036\ \};}
+
+\end{DoxyCode}

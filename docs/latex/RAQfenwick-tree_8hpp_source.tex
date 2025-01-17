@@ -1,0 +1,96 @@
+\doxysection{RAQfenwick-\/tree.hpp}
+\hypertarget{RAQfenwick-tree_8hpp_source}{}\label{RAQfenwick-tree_8hpp_source}\index{structure/RAQfenwick-\/tree.hpp@{structure/RAQfenwick-\/tree.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00002}00002\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00003}00003\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structfenwick__tree}{fenwick\_tree}}\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00004}00004\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00005}00005\ \ \ \ \ \mbox{\hyperlink{structfenwick__tree}{fenwick\_tree}}()\ :\ \_n(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00006}00006\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structfenwick__tree}{fenwick\_tree}}(\textcolor{keywordtype}{int}\ n)\ :\ \_n(n\ +\ 1),\ data(n\ +\ 1,\ 0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00008}00008\ \ \ \ \ \textcolor{keywordtype}{void}\ add(\textcolor{keywordtype}{int}\ p,\ T\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00009}00009\ \ \ \ \ \ \ \ \ assert(0\ <=\ p\ \&\&\ p\ <\ \_n);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00010}00010\ \ \ \ \ \ \ \ \ p++;\ \textcolor{comment}{//\ 1-\/originに変換}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00011}00011\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (p\ <\ \_n)\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \ \ \ \ data[p]\ +=\ x;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ p\ +=\ p\ \&\ -\/p;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00015}00015\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00017}00017\ \ \ \ \ T\ sum(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ r)\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ assert(0\ <=\ l\ \&\&\ l\ <=\ r\ \&\&\ r\ <=\ \_n);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ r++,\ l++;\ \textcolor{comment}{//\ 1-\/originに変換}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sum(r\ -\/\ 1)\ -\/\ sum(l\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{int}\ lower\_bound(T\ w)\ \{\ \textcolor{comment}{//\ [0,x)Σa\_i\ >=w\ となる最小のx\ (外部の添え字で0-\/origin)}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (w\ <=\ 0)}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ 0,\ r\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (r\ <\ \_n)}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ r\ <<\ 1;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ len\ =\ r;\ len\ >\ 0;\ len\ =\ len\ >>\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x\ +\ len\ <\ \_n\ \&\&\ data[x\ +\ len]\ <\ w)\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ w\ -\/=\ data[x\ +\ len];}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ +=\ len;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ x\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00040}00040\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{int}\ \_n;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00042}00042\ \ \ \ \ vector<T>\ data;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00043}00043\ \ \ \ \ T\ sum(\textcolor{keywordtype}{int}\ r)\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ T\ ret\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (r\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ ret\ +=\ data[r];}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ r\ -\/=\ r\ \&\ -\/r;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ret;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00051}00051\ \};}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00053}00053\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00054}\mbox{\hyperlink{structRAQ}{00054}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structRAQ}{RAQ}}\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00055}00055\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{structRAQ}{RAQ}}()\ :\ \_n(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00057}00057\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structRAQ}{RAQ}}(\textcolor{keywordtype}{int}\ n)\ :\ \_n(n\ +\ 1),}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data0(n\ +\ 1),}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ data1(n\ +\ 1)\ \{\}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{void}\ add(\textcolor{keywordtype}{int}\ p,\ T\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ assert(0\ <=\ p\ \&\&\ p\ <\ \_n);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ data0.add(p,\ x);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{void}\ add(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ r,\ T\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ assert(0\ <=\ l\ \&\&\ l\ <=\ r\ \&\&\ r\ <=\ \_n);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ data0.add(l,\ -\/x\ *\ l);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ data1.add(l,\ x);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ data0.add(r,\ x\ *\ r);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ data1.add(r,\ -\/x);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00072}00072\ \ \ \ \ T\ sum(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ r)\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ assert(0\ <=\ l\ \&\&\ l\ <=\ r\ \&\&\ r\ <=\ \_n);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sum(r)\ -\/\ sum(l);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00075}00075\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00076}00076\ \ \ \ \ T\ sum(\textcolor{keywordtype}{int}\ r)\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ assert(0\ <=\ r\ \&\&\ r\ <=\ \_n);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{comment}{//[0,r)の総和を求める\ *(r-\/1)\ ではなく\ *rにっているのは}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ a\_0の寄与を考慮するため}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ data1.sum(0,\ r)\ *\ r\ +\ data0.sum(0,\ r);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00081}00081\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00082}00082\ \ \ \ \ T\ get(\textcolor{keywordtype}{int}\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00083}00083\ \ \ \ \ \ \ \ \ assert(0\ <=\ p\ \&\&\ p\ <\ \_n);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sum(p,\ p\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00085}00085\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00087}00087\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{int}\ \_n;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00089}00089\ \ \ \ \ \mbox{\hyperlink{structfenwick__tree}{fenwick\_tree<T>}}\ data0,\ data1;}
+\DoxyCodeLine{\Hypertarget{RAQfenwick-tree_8hpp_source_l00090}00090\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,69 @@
+\doxysection{lca\+\_\+tree.\+hpp}
+\hypertarget{lca__tree_8hpp_source}{}\label{lca__tree_8hpp_source}\index{tree/lca\_tree.hpp@{tree/lca\_tree.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}../template.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00002}\mbox{\hyperlink{structlca__tree}{00002}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlca__tree}{lca\_tree}}\ \{}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00003}00003\ \ \ \ \ \mbox{\hyperlink{structlca__tree}{lca\_tree}}()\ :\ \_n(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00004}00004\ \ \ \ \ \mbox{\hyperlink{structlca__tree}{lca\_tree}}(\textcolor{keywordtype}{int}\ n)\ :\ \_n(n),\ G(n)\ \{\}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00005}00005\ \ \ \ \ \textcolor{keywordtype}{void}\ add\_edge(\textcolor{keywordtype}{int}\ u,\ \textcolor{keywordtype}{int}\ v)\ \{}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00006}00006\ \ \ \ \ \ \ \ \ G[u].pb(v);}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00007}00007\ \ \ \ \ \ \ \ \ G[v].pb(u);}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00008}00008\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordtype}{void}\ dfs(\textcolor{keywordtype}{int}\ v,\ \textcolor{keywordtype}{int}\ p,\ \textcolor{keywordtype}{int}\ d)\ \{}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00010}00010\ \ \ \ \ \ \ \ \ parent[0][v]\ =\ p;}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00011}00011\ \ \ \ \ \ \ \ \ depth[v]\ =\ d;}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ to\ :\ G[v])\ \{}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (to\ !=\ p)}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dfs(to,\ v,\ d\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00016}00016\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{void}\ build()\ \{}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ max\_k\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((1\ <<\ max\_k)\ <\ \_n)}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ max\_k++;}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ max\_k\ +=\ 2;\ \textcolor{comment}{//\ 念のため.exe}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ parent.assign(max\_k,\ vi(\_n,\ -\/1));}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ depth.assign(\_n,\ -\/1);}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ dfs(0,\ -\/1,\ 0);\ \textcolor{comment}{//\ parent,depthを初期化}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ +\ 1\ <\ max\_k;\ k++)\ \{}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ v\ =\ 0;\ v\ <\ \_n;\ v++)\ \{}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parent[k][v]\ <\ 0)}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent[k\ +\ 1][v]\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ parent[k\ +\ 1][v]\ =\ parent[k][parent[k][v]];}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{int}\ lca(\textcolor{keywordtype}{int}\ u,\ \textcolor{keywordtype}{int}\ v)\ \{\ \textcolor{comment}{//\ 頂点u,vのlcaを求める}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (depth[u]\ >\ depth[v])}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ swap(u,\ v);}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ u,vの深さを同じにする}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ max\_k;\ k++)\ \{}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((depth[v]\ -\/\ depth[u])\ >>\ k\ \&\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v\ =\ parent[k][v];}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (u\ ==\ v)}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ u;}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ max\_k\ -\/\ 1;\ k\ >=\ 0;\ k-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parent[k][u]\ !=\ parent[k][v])\ \{}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ u\ =\ parent[k][u];}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ v\ =\ parent[k][v];}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ parent[0][u];}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{int}\ dist(\textcolor{keywordtype}{int}\ u,\ \textcolor{keywordtype}{int}\ v)\ \{}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ depth[u]\ +\ depth[v]\ -\/\ depth[lca(u,\ v)]\ *\ 2;}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00057}00057\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{int}\ \_n;\ \ \ \ \ \textcolor{comment}{//\ 頂点数}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00059}00059\ \ \ \ \ vvi\ G;\ \ \ \ \ \ \textcolor{comment}{//\ 木(向無辺)}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00060}00060\ \ \ \ \ vi\ depth;\ \ \ \textcolor{comment}{//\ 根からの深さ}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00061}00061\ \ \ \ \ vvi\ parent;\ \textcolor{comment}{//\ 親を2\string^k回たどって到達する頂点(ないなら-\/1)}}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_k;}
+\DoxyCodeLine{\Hypertarget{lca__tree_8hpp_source_l00063}00063\ \};}
+
+\end{DoxyCode}

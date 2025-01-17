@@ -1,0 +1,450 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>sizimi-lib: lca_tree 構造体</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">sizimi-lib<span id="projectnumber">&#160;1</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 構築: Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','検索');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">読み取り中…</div>
+<div class="SRStatus" id="Searching">検索中…</div>
+<div class="SRStatus" id="NoMatches">一致する文字列を見つけられません</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">公開メンバ関数</a> &#124;
+<a href="#pub-attribs">公開変数類</a> &#124;
+<a href="structlca__tree-members.html">全メンバ一覧</a>  </div>
+  <div class="headertitle"><div class="title">lca_tree 構造体</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+公開メンバ関数</h2></td></tr>
+<tr class="memitem:a800991ab6eb014a6e8ea404999dbd647" id="r_a800991ab6eb014a6e8ea404999dbd647"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlca__tree.html#a800991ab6eb014a6e8ea404999dbd647">lca_tree</a> (int n)</td></tr>
+<tr class="separator:a800991ab6eb014a6e8ea404999dbd647"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a504350ce8061083b1a592cfcf22b489f" id="r_a504350ce8061083b1a592cfcf22b489f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlca__tree.html#a504350ce8061083b1a592cfcf22b489f">add_edge</a> (int u, int v)</td></tr>
+<tr class="separator:a504350ce8061083b1a592cfcf22b489f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f922c0f132b041a581ebef65acf6701" id="r_a5f922c0f132b041a581ebef65acf6701"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlca__tree.html#a5f922c0f132b041a581ebef65acf6701">dfs</a> (int v, int p, int d)</td></tr>
+<tr class="separator:a5f922c0f132b041a581ebef65acf6701"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c680e28cced9cdf4b1d18517101c8a0" id="r_a0c680e28cced9cdf4b1d18517101c8a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlca__tree.html#a0c680e28cced9cdf4b1d18517101c8a0">build</a> ()</td></tr>
+<tr class="separator:a0c680e28cced9cdf4b1d18517101c8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a948108102f5600c9316f402e143f0f5b" id="r_a948108102f5600c9316f402e143f0f5b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlca__tree.html#a948108102f5600c9316f402e143f0f5b">lca</a> (int u, int v)</td></tr>
+<tr class="separator:a948108102f5600c9316f402e143f0f5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0a9d017fe24fc61c2e4ed1d77a083f1" id="r_aa0a9d017fe24fc61c2e4ed1d77a083f1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlca__tree.html#aa0a9d017fe24fc61c2e4ed1d77a083f1">dist</a> (int u, int v)</td></tr>
+<tr class="separator:aa0a9d017fe24fc61c2e4ed1d77a083f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+公開変数類</h2></td></tr>
+<tr class="memitem:aaaeea712a1fca8fcf2d378204fc82d01" id="r_aaaeea712a1fca8fcf2d378204fc82d01"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlca__tree.html#aaaeea712a1fca8fcf2d378204fc82d01">_n</a></td></tr>
+<tr class="separator:aaaeea712a1fca8fcf2d378204fc82d01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a344913982e692d4514ea6d6953951cce" id="r_a344913982e692d4514ea6d6953951cce"><td class="memItemLeft" align="right" valign="top">vvi&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlca__tree.html#a344913982e692d4514ea6d6953951cce">G</a></td></tr>
+<tr class="separator:a344913982e692d4514ea6d6953951cce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a340303f20ef054d1598dc850a012c280" id="r_a340303f20ef054d1598dc850a012c280"><td class="memItemLeft" align="right" valign="top">vi&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlca__tree.html#a340303f20ef054d1598dc850a012c280">depth</a></td></tr>
+<tr class="separator:a340303f20ef054d1598dc850a012c280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a094f6d6be66782d814c34145112f1797" id="r_a094f6d6be66782d814c34145112f1797"><td class="memItemLeft" align="right" valign="top">vvi&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlca__tree.html#a094f6d6be66782d814c34145112f1797">parent</a></td></tr>
+<tr class="separator:a094f6d6be66782d814c34145112f1797"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63c2ca9439da59fa9edc2d15573b4b73" id="r_a63c2ca9439da59fa9edc2d15573b4b73"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlca__tree.html#a63c2ca9439da59fa9edc2d15573b4b73">max_k</a></td></tr>
+<tr class="separator:a63c2ca9439da59fa9edc2d15573b4b73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
+<div class="textblock">
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00002">2</a> 行目に定義があります。</p>
+</div><h2 class="groupheader">構築子と解体子</h2>
+<a id="a37a3dbb7c8c0f5fcb101a47f1b1cb7f1" name="a37a3dbb7c8c0f5fcb101a47f1b1cb7f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37a3dbb7c8c0f5fcb101a47f1b1cb7f1">&#9670;&#160;</a></span>lca_tree() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lca_tree::lca_tree </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00003">3</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a800991ab6eb014a6e8ea404999dbd647" name="a800991ab6eb014a6e8ea404999dbd647"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a800991ab6eb014a6e8ea404999dbd647">&#9670;&#160;</a></span>lca_tree() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">lca_tree::lca_tree </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>n</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00004">4</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">関数詳解</h2>
+<a id="a504350ce8061083b1a592cfcf22b489f" name="a504350ce8061083b1a592cfcf22b489f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a504350ce8061083b1a592cfcf22b489f">&#9670;&#160;</a></span>add_edge()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lca_tree::add_edge </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00005">5</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a0c680e28cced9cdf4b1d18517101c8a0" name="a0c680e28cced9cdf4b1d18517101c8a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c680e28cced9cdf4b1d18517101c8a0">&#9670;&#160;</a></span>build()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lca_tree::build </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00017">17</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a5f922c0f132b041a581ebef65acf6701" name="a5f922c0f132b041a581ebef65acf6701"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f922c0f132b041a581ebef65acf6701">&#9670;&#160;</a></span>dfs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void lca_tree::dfs </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>p</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00009">9</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="aa0a9d017fe24fc61c2e4ed1d77a083f1" name="aa0a9d017fe24fc61c2e4ed1d77a083f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0a9d017fe24fc61c2e4ed1d77a083f1">&#9670;&#160;</a></span>dist()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lca_tree::dist </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00055">55</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a948108102f5600c9316f402e143f0f5b" name="a948108102f5600c9316f402e143f0f5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a948108102f5600c9316f402e143f0f5b">&#9670;&#160;</a></span>lca()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lca_tree::lca </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>v</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00036">36</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<h2 class="groupheader">メンバ詳解</h2>
+<a id="aaaeea712a1fca8fcf2d378204fc82d01" name="aaaeea712a1fca8fcf2d378204fc82d01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaaeea712a1fca8fcf2d378204fc82d01">&#9670;&#160;</a></span>_n</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lca_tree::_n</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00058">58</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a340303f20ef054d1598dc850a012c280" name="a340303f20ef054d1598dc850a012c280"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a340303f20ef054d1598dc850a012c280">&#9670;&#160;</a></span>depth</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vi lca_tree::depth</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00060">60</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a344913982e692d4514ea6d6953951cce" name="a344913982e692d4514ea6d6953951cce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a344913982e692d4514ea6d6953951cce">&#9670;&#160;</a></span>G</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vvi lca_tree::G</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00059">59</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a63c2ca9439da59fa9edc2d15573b4b73" name="a63c2ca9439da59fa9edc2d15573b4b73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63c2ca9439da59fa9edc2d15573b4b73">&#9670;&#160;</a></span>max_k</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int lca_tree::max_k</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00062">62</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a094f6d6be66782d814c34145112f1797" name="a094f6d6be66782d814c34145112f1797"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a094f6d6be66782d814c34145112f1797">&#9670;&#160;</a></span>parent</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">vvi lca_tree::parent</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition"> <a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a> の <a class="el" href="lca__tree_8hpp_source.html#l00061">61</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<hr/>この構造体詳解は次のファイルから抽出されました:<ul>
+<li>tree/<a class="el" href="lca__tree_8hpp_source.html">lca_tree.hpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+構築:&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>

@@ -1,0 +1,28 @@
+\doxysection{cumulative-\/sum.test.\+cpp}
+\hypertarget{cumulative-sum_8test_8cpp_source}{}\label{cumulative-sum_8test_8cpp_source}\index{test-\/verify/cumulative-\/sum.test.cpp@{test-\/verify/cumulative-\/sum.test.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <bits/stdc++.h>}}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00002}00002\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#define\ PROBLEM\ "{}https://judge.yosupo.jp/problem/static\_range\_sum"{}}}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}./../dp/cumlative-\/sum.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00006}00006\ \textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00007}00007\ \ \ \textcolor{keywordtype}{int}\ N,\ Q;}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00008}00008\ \ \ cin\ >>\ N\ >>\ Q;}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00009}00009\ \ \ \mbox{\hyperlink{structCumulative__sum}{Cumulative\_sum<long\ long>}}\ cumsum(N);}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00010}00010\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ N;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordtype}{int}\ a;}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00012}00012\ \ \ \ \ cin\ >>\ a;}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00013}00013\ \ \ \ \ cumsum.set(i,\ a);}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00014}00014\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00015}00015\ \ \ cumsum.build();}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00016}00016\ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ qi\ =\ 0;\ qi\ <\ Q;\ qi++)\ \{}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{int}\ l,\ r;}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00018}00018\ \ \ \ \ cin\ >>\ l\ >>\ r;}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00019}00019\ \ \ \ \ cout\ <<\ cumsum.sum(l,\ r)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00020}00020\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00021}00021\ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{cumulative-sum_8test_8cpp_source_l00022}00022\ \}}
+
+\end{DoxyCode}

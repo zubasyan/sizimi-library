@@ -1,0 +1,172 @@
+\doxysection{RMQ\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} 構造体テンプレート}
+\hypertarget{structRMQ}{}\label{structRMQ}\index{RMQ$<$ T $>$@{RMQ$<$ T $>$}}
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structRMQ_a808f2684d071f52bbe7fa6c096e801c9}{RMQ}} (int n, T x\+\_\+inf)
+\item 
+\mbox{\hyperlink{structRMQ_a8d997d9f455dc8562395ea32127e19fd}{RMQ}} (vector$<$ T $>$ v, T x\+\_\+inf)
+\item 
+void \mbox{\hyperlink{structRMQ_a455f100615862fef059c5cb5c6d94664}{set}} (int p, T x)
+\item 
+void \mbox{\hyperlink{structRMQ_aa20a4428f4b57ad07524ff332c120ff8}{build}} ()
+\item 
+T \mbox{\hyperlink{structRMQ_a28faca107db687005dc9c39858a7c019}{query}} (int l, int r)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{公開変数類}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{structRMQ_aa75e0eaf49d5d59bcee15be9ada3af09}{\+\_\+n}}
+\item 
+int \mbox{\hyperlink{structRMQ_a8f18b22cf0cf4c085caab62c2919a0c4}{\+\_\+m}}
+\item 
+vector$<$ vector$<$ T $>$ $>$ \mbox{\hyperlink{structRMQ_ace8d76bc97d0e99de8346f5ce82e9ef0}{table}}
+\item 
+vector$<$ int $>$ \mbox{\hyperlink{structRMQ_ac30e644953fa99a0eea3d66b41f0f2a7}{log\+\_\+table}}
+\item 
+ll \mbox{\hyperlink{structRMQ_adb697bf1f72b01278c39b540ef448818}{inf}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+\subsubsection*{template$<$class T$>$\newline
+struct RMQ$<$ T $>$}
+
+
+ \mbox{\hyperlink{sparse-table_8hpp_source}{sparse-\/table.\+hpp}} の \mbox{\hyperlink{sparse-table_8hpp_source_l00003}{3}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{structRMQ_a58d1a60fef9f63812a67ab443b2bd3de}\label{structRMQ_a58d1a60fef9f63812a67ab443b2bd3de} 
+\index{RMQ$<$ T $>$@{RMQ$<$ T $>$}!RMQ@{RMQ}}
+\index{RMQ@{RMQ}!RMQ$<$ T $>$@{RMQ$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RMQ()}{RMQ()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structRMQ}{RMQ}}$<$ T $>$\mbox{\hyperlink{structRMQ}{\+::\+RMQ}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{sparse-table_8hpp_source}{sparse-\/table.\+hpp}} の \mbox{\hyperlink{sparse-table_8hpp_source_l00005}{5}} 行目に定義があります。
+
+\Hypertarget{structRMQ_a808f2684d071f52bbe7fa6c096e801c9}\label{structRMQ_a808f2684d071f52bbe7fa6c096e801c9} 
+\index{RMQ$<$ T $>$@{RMQ$<$ T $>$}!RMQ@{RMQ}}
+\index{RMQ@{RMQ}!RMQ$<$ T $>$@{RMQ$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RMQ()}{RMQ()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structRMQ}{RMQ}}$<$ T $>$\mbox{\hyperlink{structRMQ}{\+::\+RMQ}} (\begin{DoxyParamCaption}\item[{int}]{n,  }\item[{T}]{x\+\_\+inf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+ \mbox{\hyperlink{sparse-table_8hpp_source}{sparse-\/table.\+hpp}} の \mbox{\hyperlink{sparse-table_8hpp_source_l00006}{6}} 行目に定義があります。
+
+\Hypertarget{structRMQ_a8d997d9f455dc8562395ea32127e19fd}\label{structRMQ_a8d997d9f455dc8562395ea32127e19fd} 
+\index{RMQ$<$ T $>$@{RMQ$<$ T $>$}!RMQ@{RMQ}}
+\index{RMQ@{RMQ}!RMQ$<$ T $>$@{RMQ$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RMQ()}{RMQ()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{structRMQ}{RMQ}}$<$ T $>$\mbox{\hyperlink{structRMQ}{\+::\+RMQ}} (\begin{DoxyParamCaption}\item[{vector$<$ T $>$}]{v,  }\item[{T}]{x\+\_\+inf }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+ \mbox{\hyperlink{sparse-table_8hpp_source}{sparse-\/table.\+hpp}} の \mbox{\hyperlink{sparse-table_8hpp_source_l00013}{13}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{structRMQ_aa20a4428f4b57ad07524ff332c120ff8}\label{structRMQ_aa20a4428f4b57ad07524ff332c120ff8} 
+\index{RMQ$<$ T $>$@{RMQ$<$ T $>$}!build@{build}}
+\index{build@{build}!RMQ$<$ T $>$@{RMQ$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{structRMQ}{RMQ}}$<$ T $>$\+::build (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{sparse-table_8hpp_source}{sparse-\/table.\+hpp}} の \mbox{\hyperlink{sparse-table_8hpp_source_l00025}{25}} 行目に定義があります。
+
+\Hypertarget{structRMQ_a28faca107db687005dc9c39858a7c019}\label{structRMQ_a28faca107db687005dc9c39858a7c019} 
+\index{RMQ$<$ T $>$@{RMQ$<$ T $>$}!query@{query}}
+\index{query@{query}!RMQ$<$ T $>$@{RMQ$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{structRMQ}{RMQ}}$<$ T $>$\+::query (\begin{DoxyParamCaption}\item[{int}]{l,  }\item[{int}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{sparse-table_8hpp_source}{sparse-\/table.\+hpp}} の \mbox{\hyperlink{sparse-table_8hpp_source_l00039}{39}} 行目に定義があります。
+
+\Hypertarget{structRMQ_a455f100615862fef059c5cb5c6d94664}\label{structRMQ_a455f100615862fef059c5cb5c6d94664} 
+\index{RMQ$<$ T $>$@{RMQ$<$ T $>$}!set@{set}}
+\index{set@{set}!RMQ$<$ T $>$@{RMQ$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{structRMQ}{RMQ}}$<$ T $>$\+::set (\begin{DoxyParamCaption}\item[{int}]{p,  }\item[{T}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{sparse-table_8hpp_source}{sparse-\/table.\+hpp}} の \mbox{\hyperlink{sparse-table_8hpp_source_l00022}{22}} 行目に定義があります。
+
+
+
+\doxysubsection{メンバ詳解}
+\Hypertarget{structRMQ_a8f18b22cf0cf4c085caab62c2919a0c4}\label{structRMQ_a8f18b22cf0cf4c085caab62c2919a0c4} 
+\index{RMQ$<$ T $>$@{RMQ$<$ T $>$}!\_m@{\_m}}
+\index{\_m@{\_m}!RMQ$<$ T $>$@{RMQ$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_m}{\_m}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{structRMQ}{RMQ}}$<$ T $>$\+::\+\_\+m}
+
+
+
+ \mbox{\hyperlink{sparse-table_8hpp_source}{sparse-\/table.\+hpp}} の \mbox{\hyperlink{sparse-table_8hpp_source_l00046}{46}} 行目に定義があります。
+
+\Hypertarget{structRMQ_aa75e0eaf49d5d59bcee15be9ada3af09}\label{structRMQ_aa75e0eaf49d5d59bcee15be9ada3af09} 
+\index{RMQ$<$ T $>$@{RMQ$<$ T $>$}!\_n@{\_n}}
+\index{\_n@{\_n}!RMQ$<$ T $>$@{RMQ$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{\_n}{\_n}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{structRMQ}{RMQ}}$<$ T $>$\+::\+\_\+n}
+
+
+
+ \mbox{\hyperlink{sparse-table_8hpp_source}{sparse-\/table.\+hpp}} の \mbox{\hyperlink{sparse-table_8hpp_source_l00045}{45}} 行目に定義があります。
+
+\Hypertarget{structRMQ_adb697bf1f72b01278c39b540ef448818}\label{structRMQ_adb697bf1f72b01278c39b540ef448818} 
+\index{RMQ$<$ T $>$@{RMQ$<$ T $>$}!inf@{inf}}
+\index{inf@{inf}!RMQ$<$ T $>$@{RMQ$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{inf}{inf}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+ll \mbox{\hyperlink{structRMQ}{RMQ}}$<$ T $>$\+::inf}
+
+
+
+ \mbox{\hyperlink{sparse-table_8hpp_source}{sparse-\/table.\+hpp}} の \mbox{\hyperlink{sparse-table_8hpp_source_l00049}{49}} 行目に定義があります。
+
+\Hypertarget{structRMQ_ac30e644953fa99a0eea3d66b41f0f2a7}\label{structRMQ_ac30e644953fa99a0eea3d66b41f0f2a7} 
+\index{RMQ$<$ T $>$@{RMQ$<$ T $>$}!log\_table@{log\_table}}
+\index{log\_table@{log\_table}!RMQ$<$ T $>$@{RMQ$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{log\_table}{log\_table}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$int$>$ \mbox{\hyperlink{structRMQ}{RMQ}}$<$ T $>$\+::log\+\_\+table}
+
+
+
+ \mbox{\hyperlink{sparse-table_8hpp_source}{sparse-\/table.\+hpp}} の \mbox{\hyperlink{sparse-table_8hpp_source_l00048}{48}} 行目に定義があります。
+
+\Hypertarget{structRMQ_ace8d76bc97d0e99de8346f5ce82e9ef0}\label{structRMQ_ace8d76bc97d0e99de8346f5ce82e9ef0} 
+\index{RMQ$<$ T $>$@{RMQ$<$ T $>$}!table@{table}}
+\index{table@{table}!RMQ$<$ T $>$@{RMQ$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{table}{table}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$vector$<$T$>$ $>$ \mbox{\hyperlink{structRMQ}{RMQ}}$<$ T $>$\+::table}
+
+
+
+ \mbox{\hyperlink{sparse-table_8hpp_source}{sparse-\/table.\+hpp}} の \mbox{\hyperlink{sparse-table_8hpp_source_l00047}{47}} 行目に定義があります。
+
+
+
+この構造体詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+structure/sparse-\/table.\+hpp\end{DoxyCompactItemize}

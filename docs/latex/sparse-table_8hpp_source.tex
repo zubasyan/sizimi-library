@@ -1,0 +1,56 @@
+\doxysection{sparse-\/table.hpp}
+\hypertarget{sparse-table_8hpp_source}{}\label{sparse-table_8hpp_source}\index{structure/sparse-\/table.hpp@{structure/sparse-\/table.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}../template.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00002}00002\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00003}\mbox{\hyperlink{structRMQ}{00003}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structRMQ}{RMQ}}\ \{}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00004}00004\ \ \ \ \ \textcolor{comment}{//\ Sparse\ Table}}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00005}00005\ \ \ \ \ \mbox{\hyperlink{structRMQ}{RMQ}}()\ :\ \_n(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00006}00006\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structRMQ}{RMQ}}(\textcolor{keywordtype}{int}\ n,\ T\ x\_inf)\ :\ \_n(n)\ \{}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00007}00007\ \ \ \ \ \ \ \ \ inf\ =\ x\_inf;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \_m\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((1\ <<\ \_m)\ <=\ \_n)}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \ \ \ \ \_m++;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00011}00011\ \ \ \ \ \ \ \ \ table.assign(\_m,\ vector<T>(\_n,\ inf));}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00012}00012\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00013}00013\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structRMQ}{RMQ}}(vector<T>\ v,\ T\ x\_inf)\ \{}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00014}00014\ \ \ \ \ \ \ \ \ inf\ =\ x\_inf;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \_n\ =\ sz(v);}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \_m\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ ((1\ <<\ \_m)\ <=\ \_n)}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ \_m++;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ table.assign(\_m,\ vector<T>(\_n,\ inf));}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ table[0]\ =\ v;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{int}\ p,\ T\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ table[0][p]\ =\ x;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{void}\ build()\ \{}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ \_m;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \ \ \ \ rep(j,\ \_n)\ \{}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ table[i][j]\ =\ min(table[i\ -\/\ 1][j],\ table[i\ -\/\ 1][j\ +\ (1\ <<\ (i\ -\/\ 1))]);}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ log\_table.assign(\_n\ +\ 1,\ -\/1);}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ rep(i,\ \_n\ +\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (i\ >=\ (1\ <<\ (j\ +\ 1)))}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ j++;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ log\_table[i]\ =\ j;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00039}00039\ \ \ \ \ T\ query(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ r)\ \{}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ assert(0\ <=\ l\ \&\&\ l\ <\ r\ \&\&\ r\ <=\ \_n);}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 区間幅r-\/lを超えない最大の2\string^iを求める}}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ log\_table[r\ -\/\ l];}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ min(table[i][l],\ table[i][r\ -\/\ (1\ <<\ i)]);}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00044}00044\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{int}\ \_n;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{int}\ \_m;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00047}00047\ \ \ \ \ vector<vector<T>>\ table;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00048}00048\ \ \ \ \ vector<int>\ log\_table;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00049}00049\ \ \ \ \ ll\ inf;}
+\DoxyCodeLine{\Hypertarget{sparse-table_8hpp_source_l00050}00050\ \};}
+
+\end{DoxyCode}

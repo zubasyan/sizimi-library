@@ -1,0 +1,50 @@
+\doxysection{cumlative-\/sum.hpp}
+\hypertarget{cumlative-sum_8hpp_source}{}\label{cumlative-sum_8hpp_source}\index{dp/cumlative-\/sum.hpp@{dp/cumlative-\/sum.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00001}00001\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00002}\mbox{\hyperlink{structCumulative__sum}{00002}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structCumulative__sum}{Cumulative\_sum}}\ \{}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00003}00003\ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00004}00004\ \ \ \mbox{\hyperlink{structCumulative__sum}{Cumulative\_sum}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00005}00005\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structCumulative__sum}{Cumulative\_sum}}(\textcolor{keywordtype}{int}\ n)\ \{}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00006}00006\ \ \ \ \ \_n\ =\ n\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00007}00007\ \ \ \ \ \_data.resize(\_n,\ \textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0));}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00008}00008\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00009}00009\ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structCumulative__sum}{Cumulative\_sum}}(\textcolor{keyword}{const}\ vector<T>\&\ a)\ \{}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00010}00010\ \ \ \ \ \_n\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(a.size()\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00011}00011\ \ \ \ \ \_data.push\_back(\textcolor{keyword}{static\_cast<}T\textcolor{keyword}{>}(0));}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ static\_cast<T>(a.size());\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00013}00013\ \ \ \ \ \ \ \_data.push\_back(a[i]);}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00014}00014\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00015}00015\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00017}00017\ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{int}\ p,\ T\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00018}00018\ \ \ \ \ assert(0\ <=\ p\ \&\&\ p\ +\ 1\ <\ \_n);}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00019}00019\ \ \ \ \ \_data[p\ +\ 1]\ =\ x;}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00020}00020\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00022}00022\ \ \ \textcolor{keywordtype}{void}\ build()\ \{}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ \_n;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00024}00024\ \ \ \ \ \ \ \_data[i]\ +=\ \_data[i\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00026}00026\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00028}00028\ \ \ T\ sum(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ r)\ \{}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00029}00029\ \ \ \ \ assert(0\ <=\ l\ \&\&\ l\ <\ \_n);}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00030}00030\ \ \ \ \ assert(0\ <=\ r\ \&\&\ r\ <\ \_n);}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ \_data[r]\ -\/\ \_data[l];}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00032}00032\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00034}00034\ \ \ \textcolor{keywordtype}{void}\ show()\ \{}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ \_n;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00036}00036\ \ \ \ \ \ \ cout\ <<\ \_data[i]\ <<\ \textcolor{stringliteral}{"{}\ "{}};}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00038}00038\ \ \ \ \ cout\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00039}00039\ \ \ \}}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00041}00041\ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00042}00042\ \ \ \textcolor{keywordtype}{int}\ \_n;}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00043}00043\ \ \ vector<T>\ \_data;}
+\DoxyCodeLine{\Hypertarget{cumlative-sum_8hpp_source_l00044}00044\ \};}
+
+\end{DoxyCode}
