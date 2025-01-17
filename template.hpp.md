@@ -6,12 +6,18 @@ data:
     path: graph-other/scc.hpp
     title: graph-other/scc.hpp
   - icon: ':heavy_check_mark:'
+    path: number-theory/eulers-phi-function.hpp
+    title: "\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570"
+  - icon: ':heavy_check_mark:'
     path: structure/sparse-table.hpp
     title: structure/sparse-table.hpp
   - icon: ':heavy_check_mark:'
     path: tree/lca_tree.hpp
     title: tree/lca_tree.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test-verify/eulers-phi-function.test.cpp
+    title: test-verify/eulers-phi-function.test.cpp
   - icon: ':heavy_check_mark:'
     path: test-verify/fenwick-tree1.test.cpp
     title: test-verify/fenwick-tree1.test.cpp
@@ -78,18 +84,20 @@ data:
   isVerificationFile: false
   path: template.hpp
   requiredBy:
-  - graph-other/scc.hpp
-  - tree/lca_tree.hpp
   - structure/sparse-table.hpp
+  - number-theory/eulers-phi-function.hpp
+  - tree/lca_tree.hpp
+  - graph-other/scc.hpp
   timestamp: '2024-12-26 21:12:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
-  - test-verify/lca_tree_doubling.test.cpp
-  - test-verify/fenwick-tree2.test.cpp
+  - test-verify/eulers-phi-function.test.cpp
+  - test-verify/sparse-table.test.cpp
   - test-verify/fenwick-tree1.test.cpp
   - test-verify/fenwick-tree3.test.cpp
-  - test-verify/sparse-table.test.cpp
+  - test-verify/lca_tree_doubling.test.cpp
   - test-verify/scc.test.cpp
+  - test-verify/fenwick-tree2.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:

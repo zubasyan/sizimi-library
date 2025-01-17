@@ -16,6 +16,11 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph-other/scc.hpp
       title: graph-other/scc.hpp
+  - name: number-theory
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: number-theory/eulers-phi-function.hpp
+      title: "\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570"
   - name: structure
     pages:
     - icon: ':heavy_check_mark:'
@@ -51,6 +56,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test-verify/cumulative-sum.test.cpp
       title: test-verify/cumulative-sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test-verify/eulers-phi-function.test.cpp
+      title: test-verify/eulers-phi-function.test.cpp
     - icon: ':heavy_check_mark:'
       path: test-verify/fenwick-tree1.test.cpp
       title: test-verify/fenwick-tree1.test.cpp
