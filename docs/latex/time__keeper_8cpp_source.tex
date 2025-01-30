@@ -12,10 +12,14 @@
 \DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00016}\mbox{\hyperlink{classTK_a0aa36fae4ec0d383b1c03cb78eac8857}{00016}}\ \ \ \ \ \mbox{\hyperlink{classTK_a0aa36fae4ec0d383b1c03cb78eac8857}{TK}}(\textcolor{keyword}{const}\ int64\_t\ \&time\_threshold)}
 \DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ :\ start\_time\_(std::chrono::high\_resolution\_clock::now()),}
 \DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ time\_threshold\_(time\_threshold)\ \{\}}
-\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00023}\mbox{\hyperlink{classTK_ac057afcd4bfd1986541b12f6f966a235}{00023}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTK_ac057afcd4bfd1986541b12f6f966a235}{isTO}}()\textcolor{keyword}{\ const\ }\{}
-\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ diff\ =\ std::chrono::high\_resolution\_clock::now()\ -\/\ this-\/>start\_time\_;}
-\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::chrono::duration\_cast<std::chrono::milliseconds>(diff).count()\ >=\ time\_threshold\_;}
-\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00026}00026\ \ \ \ \ \}}
-\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00027}00027\ \};}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00024}\mbox{\hyperlink{classTK_a1bca89a23385b80f68cbccaad4e202d3}{00024}}\ \ \ \ \ int64\_t\ \mbox{\hyperlink{classTK_a1bca89a23385b80f68cbccaad4e202d3}{elapsed}}()\ \{}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ diff\ =\ std::chrono::high\_resolution\_clock::now()\ -\/\ this-\/>start\_time\_;}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::chrono::duration\_cast<std::chrono::milliseconds>(diff).count();}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00027}00027\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00032}\mbox{\hyperlink{classTK_a86bc8b1ecd07d9670d9b386e0ace20cf}{00032}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTK_a86bc8b1ecd07d9670d9b386e0ace20cf}{isTO}}()\ \{}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classTK_a1bca89a23385b80f68cbccaad4e202d3}{elapsed}}()\ >=\ time\_threshold\_;}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00034}00034\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00035}00035\ \};}
 
 \end{DoxyCode}

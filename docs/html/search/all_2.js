@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['isto_0',['isTO',['../classTK.html#ac057afcd4bfd1986541b12f6f966a235',1,'TK']]]
+  ['fenwick_5ftree_0',['fenwick_tree',['../structfenwick__tree.html',1,'']]],
+  ['fenwick_5ftree2d_1',['fenwick_tree2D',['../structfenwick__tree2D.html',1,'']]]
 ];

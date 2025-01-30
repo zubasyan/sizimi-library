@@ -16,12 +16,20 @@ public:
     TK(const int64_t &time_threshold)
         : start_time_(std::chrono::high_resolution_clock::now()),
           time_threshold_(time_threshold) {}
+
+    /**
+     * @brief 経過時間を計算
+     * @return 経過時間
+     */
+    int64_t elapsed() {
+        auto diff = std::chrono::high_resolution_clock::now() - this->start_time_;
+        return std::chrono::duration_cast<std::chrono::milliseconds>(diff).count();
+    }
     /**
      * @brief 制限時間を超えたか判定
      * @return (現在時刻 - 生成時刻 > 制限時間)?
      */
-    bool isTO() const {
-        auto diff = std::chrono::high_resolution_clock::now() - this->start_time_;
-        return std::chrono::duration_cast<std::chrono::milliseconds>(diff).count() >= time_threshold_;
+    bool isTO() {
+        return elapsed() >= time_threshold_;
     }
 };

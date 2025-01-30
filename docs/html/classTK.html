@@ -91,9 +91,12 @@ $(function() {
 <tr class="memitem:a0aa36fae4ec0d383b1c03cb78eac8857" id="r_a0aa36fae4ec0d383b1c03cb78eac8857"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTK.html#a0aa36fae4ec0d383b1c03cb78eac8857">TK</a> (const int64_t &amp;time_threshold)</td></tr>
 <tr class="memdesc:a0aa36fae4ec0d383b1c03cb78eac8857"><td class="mdescLeft">&#160;</td><td class="mdescRight">コンストラクタ生成時からの時間を計測  <br /></td></tr>
 <tr class="separator:a0aa36fae4ec0d383b1c03cb78eac8857"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac057afcd4bfd1986541b12f6f966a235" id="r_ac057afcd4bfd1986541b12f6f966a235"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTK.html#ac057afcd4bfd1986541b12f6f966a235">isTO</a> () const</td></tr>
-<tr class="memdesc:ac057afcd4bfd1986541b12f6f966a235"><td class="mdescLeft">&#160;</td><td class="mdescRight">制限時間を超えたか判定  <br /></td></tr>
-<tr class="separator:ac057afcd4bfd1986541b12f6f966a235"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1bca89a23385b80f68cbccaad4e202d3" id="r_a1bca89a23385b80f68cbccaad4e202d3"><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTK.html#a1bca89a23385b80f68cbccaad4e202d3">elapsed</a> ()</td></tr>
+<tr class="memdesc:a1bca89a23385b80f68cbccaad4e202d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">経過時間を計算  <br /></td></tr>
+<tr class="separator:a1bca89a23385b80f68cbccaad4e202d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86bc8b1ecd07d9670d9b386e0ace20cf" id="r_a86bc8b1ecd07d9670d9b386e0ace20cf"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classTK.html#a86bc8b1ecd07d9670d9b386e0ace20cf">isTO</a> ()</td></tr>
+<tr class="memdesc:a86bc8b1ecd07d9670d9b386e0ace20cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">制限時間を超えたか判定  <br /></td></tr>
+<tr class="separator:a86bc8b1ecd07d9670d9b386e0ace20cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">詳解</h2>
 <div class="textblock"><p>時間を管理するクラス </p>
@@ -137,8 +140,38 @@ $(function() {
 </div>
 </div>
 <h2 class="groupheader">関数詳解</h2>
-<a id="ac057afcd4bfd1986541b12f6f966a235" name="ac057afcd4bfd1986541b12f6f966a235"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac057afcd4bfd1986541b12f6f966a235">&#9670;&#160;</a></span>isTO()</h2>
+<a id="a1bca89a23385b80f68cbccaad4e202d3" name="a1bca89a23385b80f68cbccaad4e202d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bca89a23385b80f68cbccaad4e202d3">&#9670;&#160;</a></span>elapsed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int64_t TK::elapsed </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>経過時間を計算 </p>
+<dl class="section return"><dt>戻り値</dt><dd>経過時間 </dd></dl>
+
+<p class="definition"> <a class="el" href="time__keeper_8cpp_source.html">time_keeper.cpp</a> の <a class="el" href="time__keeper_8cpp_source.html#l00024">24</a> 行目に定義があります。</p>
+
+</div>
+</div>
+<a id="a86bc8b1ecd07d9670d9b386e0ace20cf" name="a86bc8b1ecd07d9670d9b386e0ace20cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86bc8b1ecd07d9670d9b386e0ace20cf">&#9670;&#160;</a></span>isTO()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -150,7 +183,7 @@ $(function() {
           <td class="memname">bool TK::isTO </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -163,7 +196,7 @@ $(function() {
 <p>制限時間を超えたか判定 </p>
 <dl class="section return"><dt>戻り値</dt><dd>(現在時刻 - 生成時刻 &gt; 制限時間)? </dd></dl>
 
-<p class="definition"> <a class="el" href="time__keeper_8cpp_source.html">time_keeper.cpp</a> の <a class="el" href="time__keeper_8cpp_source.html#l00023">23</a> 行目に定義があります。</p>
+<p class="definition"> <a class="el" href="time__keeper_8cpp_source.html">time_keeper.cpp</a> の <a class="el" href="time__keeper_8cpp_source.html#l00032">32</a> 行目に定義があります。</p>
 
 </div>
 </div>

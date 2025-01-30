@@ -10,7 +10,9 @@
 \item 
 \mbox{\hyperlink{classTK_a0aa36fae4ec0d383b1c03cb78eac8857}{TK}} (const int64\+\_\+t \&time\+\_\+threshold)
 \begin{DoxyCompactList}\small\item\em コンストラクタ生成時からの時間を計測 \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classTK_ac057afcd4bfd1986541b12f6f966a235}{is\+TO}} () const
+int64\+\_\+t \mbox{\hyperlink{classTK_a1bca89a23385b80f68cbccaad4e202d3}{elapsed}} ()
+\begin{DoxyCompactList}\small\item\em 経過時間を計算 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTK_a86bc8b1ecd07d9670d9b386e0ace20cf}{is\+TO}} ()
 \begin{DoxyCompactList}\small\item\em 制限時間を超えたか判定 \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -44,11 +46,28 @@ bool \mbox{\hyperlink{classTK_ac057afcd4bfd1986541b12f6f966a235}{is\+TO}} () con
 
 
 \doxysubsection{関数詳解}
-\Hypertarget{classTK_ac057afcd4bfd1986541b12f6f966a235}\label{classTK_ac057afcd4bfd1986541b12f6f966a235} 
+\Hypertarget{classTK_a1bca89a23385b80f68cbccaad4e202d3}\label{classTK_a1bca89a23385b80f68cbccaad4e202d3} 
+\index{TK@{TK}!elapsed@{elapsed}}
+\index{elapsed@{elapsed}!TK@{TK}}
+\doxysubsubsection{\texorpdfstring{elapsed()}{elapsed()}}
+{\footnotesize\ttfamily int64\+\_\+t TK\+::elapsed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+経過時間を計算 
+
+\begin{DoxyReturn}{戻り値}
+経過時間 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{time__keeper_8cpp_source}{time\+\_\+keeper.\+cpp}} の \mbox{\hyperlink{time__keeper_8cpp_source_l00024}{24}} 行目に定義があります。
+
+\Hypertarget{classTK_a86bc8b1ecd07d9670d9b386e0ace20cf}\label{classTK_a86bc8b1ecd07d9670d9b386e0ace20cf} 
 \index{TK@{TK}!isTO@{isTO}}
 \index{isTO@{isTO}!TK@{TK}}
 \doxysubsubsection{\texorpdfstring{isTO()}{isTO()}}
-{\footnotesize\ttfamily bool TK\+::is\+TO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+{\footnotesize\ttfamily bool TK\+::is\+TO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
 
 
@@ -59,7 +78,7 @@ bool \mbox{\hyperlink{classTK_ac057afcd4bfd1986541b12f6f966a235}{is\+TO}} () con
 \end{DoxyReturn}
 
 
- \mbox{\hyperlink{time__keeper_8cpp_source}{time\+\_\+keeper.\+cpp}} の \mbox{\hyperlink{time__keeper_8cpp_source_l00023}{23}} 行目に定義があります。
+ \mbox{\hyperlink{time__keeper_8cpp_source}{time\+\_\+keeper.\+cpp}} の \mbox{\hyperlink{time__keeper_8cpp_source_l00032}{32}} 行目に定義があります。
 
 
 

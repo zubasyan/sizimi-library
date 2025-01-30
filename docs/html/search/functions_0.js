@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['isto_0',['isTO',['../classTK.html#ac057afcd4bfd1986541b12f6f966a235',1,'TK']]]
+  ['elapsed_0',['elapsed',['../classTK.html#a1bca89a23385b80f68cbccaad4e202d3',1,'TK']]]
 ];
