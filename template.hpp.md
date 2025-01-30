@@ -85,19 +85,19 @@ data:
   path: template.hpp
   requiredBy:
   - structure/sparse-table.hpp
+  - graph-other/scc.hpp
   - number-theory/eulers-phi-function.hpp
   - tree/lca_tree.hpp
-  - graph-other/scc.hpp
   timestamp: '2024-12-26 21:12:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test-verify/eulers-phi-function.test.cpp
+  - test-verify/fenwick-tree2.test.cpp
   - test-verify/sparse-table.test.cpp
+  - test-verify/lca_tree_doubling.test.cpp
   - test-verify/fenwick-tree1.test.cpp
   - test-verify/fenwick-tree3.test.cpp
-  - test-verify/lca_tree_doubling.test.cpp
   - test-verify/scc.test.cpp
-  - test-verify/fenwick-tree2.test.cpp
 documentation_of: template.hpp
 layout: document
 redirect_from:
