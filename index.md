@@ -4,6 +4,9 @@ data:
   - name: H
     pages:
     - icon: ':warning:'
+      path: H/random.cpp
+      title: H/random.cpp
+    - icon: ':warning:'
       path: H/time_keeper.cpp
       title: "\u6642\u9593\u3092\u7BA1\u7406\u3059\u308B\u30AF\u30E9\u30B9"
   - name: compression
