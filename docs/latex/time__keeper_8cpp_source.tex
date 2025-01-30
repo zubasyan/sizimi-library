@@ -1,0 +1,21 @@
+\doxysection{time\+\_\+keeper.\+cpp}
+\hypertarget{time__keeper_8cpp_source}{}\label{time__keeper_8cpp_source}\index{H/time\_keeper.cpp@{H/time\_keeper.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <chrono>}}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00006}\mbox{\hyperlink{classTK}{00006}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classTK}{TK}}\ \{}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00007}00007\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00008}00008\ \ \ \ \ std::chrono::high\_resolution\_clock::time\_point\ start\_time\_;}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00009}00009\ \ \ \ \ int64\_t\ time\_threshold\_;}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00011}00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00016}\mbox{\hyperlink{classTK_a0aa36fae4ec0d383b1c03cb78eac8857}{00016}}\ \ \ \ \ \mbox{\hyperlink{classTK_a0aa36fae4ec0d383b1c03cb78eac8857}{TK}}(\textcolor{keyword}{const}\ int64\_t\ \&time\_threshold)}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ :\ start\_time\_(std::chrono::high\_resolution\_clock::now()),}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ time\_threshold\_(time\_threshold)\ \{\}}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00023}\mbox{\hyperlink{classTK_ac057afcd4bfd1986541b12f6f966a235}{00023}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classTK_ac057afcd4bfd1986541b12f6f966a235}{isTO}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ diff\ =\ std::chrono::high\_resolution\_clock::now()\ -\/\ this-\/>start\_time\_;}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ std::chrono::duration\_cast<std::chrono::milliseconds>(diff).count()\ >=\ time\_threshold\_;}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{time__keeper_8cpp_source_l00027}00027\ \};}
+
+\end{DoxyCode}

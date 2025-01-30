@@ -1,0 +1,68 @@
+\doxysection{TK クラス}
+\hypertarget{classTK}{}\label{classTK}\index{TK@{TK}}
+
+
+時間を管理するクラス  
+
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTK_a0aa36fae4ec0d383b1c03cb78eac8857}{TK}} (const int64\+\_\+t \&time\+\_\+threshold)
+\begin{DoxyCompactList}\small\item\em コンストラクタ生成時からの時間を計測 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTK_ac057afcd4bfd1986541b12f6f966a235}{is\+TO}} () const
+\begin{DoxyCompactList}\small\item\em 制限時間を超えたか判定 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+時間を管理するクラス 
+
+ \mbox{\hyperlink{time__keeper_8cpp_source}{time\+\_\+keeper.\+cpp}} の \mbox{\hyperlink{time__keeper_8cpp_source_l00006}{6}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classTK_a0aa36fae4ec0d383b1c03cb78eac8857}\label{classTK_a0aa36fae4ec0d383b1c03cb78eac8857} 
+\index{TK@{TK}!TK@{TK}}
+\index{TK@{TK}!TK@{TK}}
+\doxysubsubsection{\texorpdfstring{TK()}{TK()}}
+{\footnotesize\ttfamily TK\+::\+TK (\begin{DoxyParamCaption}\item[{const int64\+\_\+t \&}]{time\+\_\+threshold }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+コンストラクタ生成時からの時間を計測 
+
+
+\begin{DoxyParams}{引数}
+{\em time\+\_\+threshold} & 制限時間\mbox{[}ms\mbox{]} \\
+\hline
+\end{DoxyParams}
+
+
+ \mbox{\hyperlink{time__keeper_8cpp_source}{time\+\_\+keeper.\+cpp}} の \mbox{\hyperlink{time__keeper_8cpp_source_l00016}{16}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classTK_ac057afcd4bfd1986541b12f6f966a235}\label{classTK_ac057afcd4bfd1986541b12f6f966a235} 
+\index{TK@{TK}!isTO@{isTO}}
+\index{isTO@{isTO}!TK@{TK}}
+\doxysubsubsection{\texorpdfstring{isTO()}{isTO()}}
+{\footnotesize\ttfamily bool TK\+::is\+TO (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+制限時間を超えたか判定 
+
+\begin{DoxyReturn}{戻り値}
+(現在時刻 -\/ 生成時刻 \texorpdfstring{$>$}{>} 制限時間)? 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{time__keeper_8cpp_source}{time\+\_\+keeper.\+cpp}} の \mbox{\hyperlink{time__keeper_8cpp_source_l00023}{23}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+H/time\+\_\+keeper.\+cpp\end{DoxyCompactItemize}

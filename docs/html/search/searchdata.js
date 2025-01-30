@@ -1,21 +1,24 @@
 var indexSectionsWithContent =
 {
-  0: "cflrsし",
-  1: "cflrs",
-  2: "r"
+  0: "cfilrstし",
+  1: "cflrst",
+  2: "it",
+  3: "r"
 };
 
 var indexSectionNames =
 {
   0: "all",
   1: "classes",
-  2: "pages"
+  2: "functions",
+  3: "pages"
 };
 
 var indexSectionLabels =
 {
   0: "全て",
   1: "クラス",
-  2: "ページ"
+  2: "関数",
+  3: "ページ"
 };
 
