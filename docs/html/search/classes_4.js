@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['scc_5fgraph_0',['scc_graph',['../structscc__graph.html',1,'']]]
+  ['raq_0',['RAQ',['../structRAQ.html',1,'']]],
+  ['rmq_1',['RMQ',['../structRMQ.html',1,'']]]
 ];

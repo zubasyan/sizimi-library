@@ -1,0 +1,70 @@
+\doxysection{DSU\+\_\+\+W.\+hpp}
+\hypertarget{DSU__W_8hpp_source}{}\label{DSU__W_8hpp_source}\index{tree/DSU\_W.hpp@{tree/DSU\_W.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}../template.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00006}00006\ \textcolor{keyword}{template}\ <\textcolor{keyword}{class}\ T>}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00007}\mbox{\hyperlink{classDSU__W}{00007}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classDSU__W}{DSU\_W}}\ \{}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00008}00008\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00009}00009\ \ \ \ \ vector<int>\ parents\_;\ \textcolor{comment}{//\ 頂点iの親}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00010}00010\ \ \ \ \ vector<int>\ size\_;\ \ \ \ \textcolor{comment}{//\ 頂点iが所属する木のサイズ}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00011}00011\ \ \ \ \ vector<T>\ diff\_;\ \ \ \ \ \ \textcolor{comment}{//\ 木の根から頂点iへの差分}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordtype}{int}\ n\_;}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00014}00014\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{classDSU__W}{DSU\_W}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00021}\mbox{\hyperlink{classDSU__W_af738e4e65ab12896ce829b744ca1b9ce}{00021}}\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classDSU__W_af738e4e65ab12896ce829b744ca1b9ce}{DSU\_W}}(\textcolor{keywordtype}{size\_t}\ n)}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ :\ parents\_(n),\ size\_(n,\ 1),\ diff\_(n),\ n\_(n)\ \{}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ std::iota(parents\_.begin(),\ parents\_.end(),\ 0);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00030}\mbox{\hyperlink{classDSU__W_a524f3a793854dce848a280dee15aa2e7}{00030}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classDSU__W_a524f3a793854dce848a280dee15aa2e7}{leader}}(\textcolor{keywordtype}{int}\ i)\ \{}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00031}00031\ \ \ \ \ \ \ \ \ assert(0\ <=\ i\ \&\&\ i\ <\ n\_);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (parents\_[i]\ ==\ i)}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ i;}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ root\ =\ \mbox{\hyperlink{classDSU__W_a524f3a793854dce848a280dee15aa2e7}{leader}}(parents\_[i]);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ diff\_[i]\ +=\ diff\_[parents\_[i]];}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ parents\_[i]\ =\ root;}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00037}00037\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00046}\mbox{\hyperlink{classDSU__W_abf9277c91a5ccdb7bfdc5312cb9240ac}{00046}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classDSU__W_abf9277c91a5ccdb7bfdc5312cb9240ac}{merge}}(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b,\ T\ w)\ \{}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ assert(0\ <=\ a\ \&\&\ a\ <\ n\_);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ assert(0\ <=\ b\ \&\&\ b\ <\ n\_);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ w\ +=\ weight(a);\ \textcolor{comment}{//\ 根同士の差分に落とすため}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ w\ -\/=\ weight(b);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ a\ =\ \mbox{\hyperlink{classDSU__W_a524f3a793854dce848a280dee15aa2e7}{leader}}(a);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00053}00053\ \ \ \ \ \ \ \ \ b\ =\ \mbox{\hyperlink{classDSU__W_a524f3a793854dce848a280dee15aa2e7}{leader}}(b);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (a\ ==\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ 連結なら}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classDSU__W_ac75286e898525e35437836bb47a5552e}{diff}}(a,\ b)\ ==\ w;}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (size\_[a]\ <\ size\_[b])\ \{}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ swap(a,\ b),\ w\ =\ -\/w;}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ size\_[a]\ +=\ size\_[b];}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ parents\_[b]\ =\ a;}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ diff\_[b]\ =\ w;}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00065}00065\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00072}\mbox{\hyperlink{classDSU__W_ac75286e898525e35437836bb47a5552e}{00072}}\ \ \ \ \ T\ \mbox{\hyperlink{classDSU__W_ac75286e898525e35437836bb47a5552e}{diff}}(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ assert(0\ <=\ a\ \&\&\ a\ <\ n\_);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ assert(0\ <=\ b\ \&\&\ b\ <\ n\_);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ weight(b)\ -\/\ weight(a);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00076}00076\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00083}\mbox{\hyperlink{classDSU__W_aa436c42df679a3dac5342549e2c9ac5f}{00083}}\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classDSU__W_aa436c42df679a3dac5342549e2c9ac5f}{same}}(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00084}00084\ \ \ \ \ \ \ \ \ assert(0\ <=\ a\ \&\&\ a\ <\ n\_);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ assert(0\ <=\ b\ \&\&\ b\ <\ n\_);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (\mbox{\hyperlink{classDSU__W_a524f3a793854dce848a280dee15aa2e7}{leader}}(a)\ ==\ \mbox{\hyperlink{classDSU__W_a524f3a793854dce848a280dee15aa2e7}{leader}}(b));}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00087}00087\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00089}00089\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00090}00090\ \ \ \ \ T\ weight(\textcolor{keywordtype}{int}\ i)\ \{}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ assert(0\ <=\ i\ \&\&\ i\ <\ n\_);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classDSU__W_a524f3a793854dce848a280dee15aa2e7}{leader}}(i);}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ diff\_[i];}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00094}00094\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{DSU__W_8hpp_source_l00095}00095\ \};}
+
+\end{DoxyCode}

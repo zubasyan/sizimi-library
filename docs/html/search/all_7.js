@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['tk_0',['tk',['../classTK.html',1,'TK'],['../classTK.html#a0aa36fae4ec0d383b1c03cb78eac8857',1,'TK::TK()']]]
+  ['raq_0',['RAQ',['../structRAQ.html',1,'']]],
+  ['readme_1',['README',['../md_README.html',1,'']]],
+  ['rmq_2',['RMQ',['../structRMQ.html',1,'']]]
 ];

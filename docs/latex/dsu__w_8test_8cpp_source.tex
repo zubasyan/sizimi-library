@@ -1,0 +1,45 @@
+\doxysection{dsu\+\_\+w.\+test.\+cpp}
+\hypertarget{dsu__w_8test_8cpp_source}{}\label{dsu__w_8test_8cpp_source}\index{test-\/verify/dsu\_w.test.cpp@{test-\/verify/dsu\_w.test.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <bits/stdc++.h>}}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00002}00002\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#define\ PROBLEM\ "{}https://judge.u-\/aizu.ac.jp/onlinejudge/description.jsp?id=DSL\_1\_B"{}}}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}../tree/DSU\_W.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00005}00005\ \textcolor{keywordtype}{void}\ solve()\ \{}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00006}00006\ \ \ \ \ \textcolor{keywordtype}{int}\ N,\ Q;}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00007}00007\ \ \ \ \ cin\ >>\ N\ >>\ Q;}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{classDSU__W}{DSU\_W<ll>}}\ uf(N);}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordflow}{while}\ (Q-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ op;}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00011}00011\ \ \ \ \ \ \ \ \ cin\ >>\ op;}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (op\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y,\ z;}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ x\ >>\ y\ >>\ z;}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \ \ \ \ uf.merge(x,\ y,\ z);}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (op\ ==\ 1)\ \{}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ x\ >>\ y;}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (uf.same(x,\ y))}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ uf.diff(x,\ y)\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}?\(\backslash\)n"{}};}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ cerr\ <<\ \textcolor{stringliteral}{"{}error!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00027}00027\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00030}00030\ \textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ ios::sync\_with\_stdio(false);}}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{comment}{//\ std::cin.tie(nullptr);}}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{int}\ T\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00034}00034\ \ \ \ \ \textcolor{comment}{//\ cin>>T;}}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{while}\ (T-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ solve();}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00037}00037\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{dsu__w_8test_8cpp_source_l00039}00039\ \}}
+
+\end{DoxyCode}

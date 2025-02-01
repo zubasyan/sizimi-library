@@ -1,0 +1,159 @@
+\doxysection{DSU\+\_\+W\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} クラステンプレート}
+\hypertarget{classDSU__W}{}\label{classDSU__W}\index{DSU\_W$<$ T $>$@{DSU\_W$<$ T $>$}}
+
+
+差分制約をみたすdsu  
+
+
+
+
+{\ttfamily \#include $<$DSU\+\_\+\+W.\+hpp$>$}
+
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDSU__W_af738e4e65ab12896ce829b744ca1b9ce}{DSU\+\_\+W}} (size\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em 重み付きdsuを構築 \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classDSU__W_a524f3a793854dce848a280dee15aa2e7}{leader}} (int i)
+\begin{DoxyCompactList}\small\item\em leader(根を返す) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDSU__W_abf9277c91a5ccdb7bfdc5312cb9240ac}{merge}} (int a, int b, T w)
+\begin{DoxyCompactList}\small\item\em a,bを統合 \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classDSU__W_ac75286e898525e35437836bb47a5552e}{diff}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em a,bの重みの差 \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDSU__W_aa436c42df679a3dac5342549e2c9ac5f}{same}} (int a, int b)
+\begin{DoxyCompactList}\small\item\em a,bが同じグループに属すか判定 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+\subsubsection*{template$<$class T$>$\newline
+class DSU\+\_\+\+W$<$ T $>$}
+差分制約をみたすdsu 
+
+ \mbox{\hyperlink{DSU__W_8hpp_source}{DSU\+\_\+\+W.\+hpp}} の \mbox{\hyperlink{DSU__W_8hpp_source_l00007}{7}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{classDSU__W_af738e4e65ab12896ce829b744ca1b9ce}\label{classDSU__W_af738e4e65ab12896ce829b744ca1b9ce} 
+\index{DSU\_W$<$ T $>$@{DSU\_W$<$ T $>$}!DSU\_W@{DSU\_W}}
+\index{DSU\_W@{DSU\_W}!DSU\_W$<$ T $>$@{DSU\_W$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DSU\_W()}{DSU\_W()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classDSU__W}{DSU\+\_\+W}}$<$ T $>$\mbox{\hyperlink{classDSU__W}{\+::\+DSU\+\_\+W}} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+重み付きdsuを構築 
+
+
+\begin{DoxyParams}{引数}
+{\em n} & 要素数 \\
+\hline
+\end{DoxyParams}
+
+
+ \mbox{\hyperlink{DSU__W_8hpp_source}{DSU\+\_\+\+W.\+hpp}} の \mbox{\hyperlink{DSU__W_8hpp_source_l00021}{21}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{classDSU__W_ac75286e898525e35437836bb47a5552e}\label{classDSU__W_ac75286e898525e35437836bb47a5552e} 
+\index{DSU\_W$<$ T $>$@{DSU\_W$<$ T $>$}!diff@{diff}}
+\index{diff@{diff}!DSU\_W$<$ T $>$@{DSU\_W$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{diff()}{diff()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classDSU__W}{DSU\+\_\+W}}$<$ T $>$\+::diff (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+a,bの重みの差 
+
+
+\begin{DoxyParams}{引数}
+{\em a} & 一方の頂点番号 \\
+\hline
+{\em b} & 他方の頂点番号 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+a,bの重みの差 w\+\_\+b-\/w\+\_\+a 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{DSU__W_8hpp_source}{DSU\+\_\+\+W.\+hpp}} の \mbox{\hyperlink{DSU__W_8hpp_source_l00072}{72}} 行目に定義があります。
+
+\Hypertarget{classDSU__W_a524f3a793854dce848a280dee15aa2e7}\label{classDSU__W_a524f3a793854dce848a280dee15aa2e7} 
+\index{DSU\_W$<$ T $>$@{DSU\_W$<$ T $>$}!leader@{leader}}
+\index{leader@{leader}!DSU\_W$<$ T $>$@{DSU\_W$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{leader()}{leader()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{classDSU__W}{DSU\+\_\+W}}$<$ T $>$\+::leader (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+leader(根を返す) 
+
+\begin{DoxyReturn}{戻り値}
+根の頂点番号 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{DSU__W_8hpp_source}{DSU\+\_\+\+W.\+hpp}} の \mbox{\hyperlink{DSU__W_8hpp_source_l00030}{30}} 行目に定義があります。
+
+\Hypertarget{classDSU__W_abf9277c91a5ccdb7bfdc5312cb9240ac}\label{classDSU__W_abf9277c91a5ccdb7bfdc5312cb9240ac} 
+\index{DSU\_W$<$ T $>$@{DSU\_W$<$ T $>$}!merge@{merge}}
+\index{merge@{merge}!DSU\_W$<$ T $>$@{DSU\_W$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{merge()}{merge()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classDSU__W}{DSU\+\_\+W}}$<$ T $>$\+::merge (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b,  }\item[{T}]{w }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+a,bを統合 
+
+
+\begin{DoxyParams}{引数}
+{\em a} & 一方の頂点番号 \\
+\hline
+{\em b} & 他方の頂点番号 \\
+\hline
+{\em w} & bの重みとaの重みの差　w=w\+\_\+b-\/w\+\_\+a \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+T/F すでに連結かつ制約を満たすまたは非連結ならtrue 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{DSU__W_8hpp_source}{DSU\+\_\+\+W.\+hpp}} の \mbox{\hyperlink{DSU__W_8hpp_source_l00046}{46}} 行目に定義があります。
+
+\Hypertarget{classDSU__W_aa436c42df679a3dac5342549e2c9ac5f}\label{classDSU__W_aa436c42df679a3dac5342549e2c9ac5f} 
+\index{DSU\_W$<$ T $>$@{DSU\_W$<$ T $>$}!same@{same}}
+\index{same@{same}!DSU\_W$<$ T $>$@{DSU\_W$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{same()}{same()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classDSU__W}{DSU\+\_\+W}}$<$ T $>$\+::same (\begin{DoxyParamCaption}\item[{int}]{a,  }\item[{int}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+a,bが同じグループに属すか判定 
+
+
+\begin{DoxyParams}{引数}
+{\em a} & 一方の頂点番号 \\
+\hline
+{\em b} & 他方の頂点番号 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{戻り値}
+T/F 
+\end{DoxyReturn}
+
+
+ \mbox{\hyperlink{DSU__W_8hpp_source}{DSU\+\_\+\+W.\+hpp}} の \mbox{\hyperlink{DSU__W_8hpp_source_l00083}{83}} 行目に定義があります。
+
+
+
+このクラス詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+tree/DSU\+\_\+\+W.\+hpp\end{DoxyCompactItemize}
