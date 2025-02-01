@@ -12,9 +12,15 @@ data:
     path: structure/sparse-table.hpp
     title: structure/sparse-table.hpp
   - icon: ':heavy_check_mark:'
+    path: tree/DSU_W.hpp
+    title: "\u5DEE\u5206\u5236\u7D04\u3092\u307F\u305F\u3059dsu"
+  - icon: ':heavy_check_mark:'
     path: tree/lca_tree.hpp
     title: tree/lca_tree.hpp
   _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test-verify/dsu_w.test.cpp
+    title: test-verify/dsu_w.test.cpp
   - icon: ':heavy_check_mark:'
     path: test-verify/eulers-phi-function.test.cpp
     title: test-verify/eulers-phi-function.test.cpp
@@ -87,11 +93,13 @@ data:
   - structure/sparse-table.hpp
   - graph-other/scc.hpp
   - number-theory/eulers-phi-function.hpp
+  - tree/DSU_W.hpp
   - tree/lca_tree.hpp
   timestamp: '2024-12-26 21:12:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test-verify/eulers-phi-function.test.cpp
+  - test-verify/dsu_w.test.cpp
   - test-verify/fenwick-tree2.test.cpp
   - test-verify/sparse-table.test.cpp
   - test-verify/lca_tree_doubling.test.cpp

@@ -51,6 +51,9 @@ data:
   - name: tree
     pages:
     - icon: ':heavy_check_mark:'
+      path: tree/DSU_W.hpp
+      title: "\u5DEE\u5206\u5236\u7D04\u3092\u307F\u305F\u3059dsu"
+    - icon: ':heavy_check_mark:'
       path: tree/lca_tree.hpp
       title: tree/lca_tree.hpp
   verificationCategories:
@@ -64,6 +67,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test-verify/cumulative-sum.test.cpp
       title: test-verify/cumulative-sum.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test-verify/dsu_w.test.cpp
+      title: test-verify/dsu_w.test.cpp
     - icon: ':heavy_check_mark:'
       path: test-verify/eulers-phi-function.test.cpp
       title: test-verify/eulers-phi-function.test.cpp
