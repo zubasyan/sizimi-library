@@ -9,6 +9,9 @@ data:
     path: number-theory/eulers-phi-function.hpp
     title: "\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570"
   - icon: ':heavy_check_mark:'
+    path: number-theory/extgcd.hpp
+    title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
+  - icon: ':heavy_check_mark:'
     path: structure/sparse-table.hpp
     title: structure/sparse-table.hpp
   - icon: ':heavy_check_mark:'
@@ -24,6 +27,9 @@ data:
   - icon: ':heavy_check_mark:'
     path: test-verify/eulers-phi-function.test.cpp
     title: test-verify/eulers-phi-function.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test-verify/extgcd.test.cpp
+    title: test-verify/extgcd.test.cpp
   - icon: ':heavy_check_mark:'
     path: test-verify/fenwick-tree1.test.cpp
     title: test-verify/fenwick-tree1.test.cpp
@@ -92,6 +98,7 @@ data:
   requiredBy:
   - structure/sparse-table.hpp
   - graph-other/scc.hpp
+  - number-theory/extgcd.hpp
   - number-theory/eulers-phi-function.hpp
   - tree/DSU_W.hpp
   - tree/lca_tree.hpp
@@ -105,6 +112,7 @@ data:
   - test-verify/lca_tree_doubling.test.cpp
   - test-verify/fenwick-tree1.test.cpp
   - test-verify/fenwick-tree3.test.cpp
+  - test-verify/extgcd.test.cpp
   - test-verify/scc.test.cpp
 documentation_of: template.hpp
 layout: document

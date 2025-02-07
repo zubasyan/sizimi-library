@@ -29,6 +29,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: number-theory/eulers-phi-function.hpp
       title: "\u30AA\u30A4\u30E9\u30FC\u306E\u03C6\u95A2\u6570"
+    - icon: ':heavy_check_mark:'
+      path: number-theory/extgcd.hpp
+      title: "\u62E1\u5F35\u30E6\u30FC\u30AF\u30EA\u30C3\u30C9\u306E\u4E92\u9664\u6CD5"
   - name: structure
     pages:
     - icon: ':heavy_check_mark:'
@@ -73,6 +76,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: test-verify/eulers-phi-function.test.cpp
       title: test-verify/eulers-phi-function.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test-verify/extgcd.test.cpp
+      title: test-verify/extgcd.test.cpp
     - icon: ':heavy_check_mark:'
       path: test-verify/fenwick-tree1.test.cpp
       title: test-verify/fenwick-tree1.test.cpp
