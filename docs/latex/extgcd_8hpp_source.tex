@@ -1,0 +1,16 @@
+\doxysection{extgcd.\+hpp}
+\hypertarget{extgcd_8hpp_source}{}\label{extgcd_8hpp_source}\index{number-\/theory/extgcd.hpp@{number-\/theory/extgcd.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{extgcd_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}../template.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{extgcd_8hpp_source_l00013}00013\ tuple<ll,\ ll,\ ll>\ extgcd(ll\ a,\ ll\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{extgcd_8hpp_source_l00014}00014\ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ !=\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{extgcd_8hpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ [y,\ x,\ d]\ =\ extgcd(b,\ a\ \%\ b);}
+\DoxyCodeLine{\Hypertarget{extgcd_8hpp_source_l00016}00016\ \ \ \ \ \ \ \ \ y\ -\/=\ (a\ /\ b)\ *\ x;}
+\DoxyCodeLine{\Hypertarget{extgcd_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{x,\ y,\ d\};}
+\DoxyCodeLine{\Hypertarget{extgcd_8hpp_source_l00018}00018\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{extgcd_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{1,\ 0,\ a\};}
+\DoxyCodeLine{\Hypertarget{extgcd_8hpp_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{extgcd_8hpp_source_l00021}00021\ \}}
+
+\end{DoxyCode}

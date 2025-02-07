@@ -91,5 +91,7 @@
         "variant": "cpp",
         "format": "cpp",
         "stdfloat": "cpp"
-    }
+    },
+    "editor.fontSize": 22,
+    "files.autoSave": "onFocusChange"
 }
