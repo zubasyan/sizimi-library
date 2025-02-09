@@ -1,0 +1,205 @@
+\doxysection{lazysegtree.\+hpp}
+\hypertarget{lazysegtree_8hpp_source}{}\label{lazysegtree_8hpp_source}\index{tree/lazysegtree.hpp@{tree/lazysegtree.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}../template.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00002}00002\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ auto\ op,\ auto\ e,\ \textcolor{keyword}{typename}\ F,\ auto\ mapping,\ auto\ composition,\ auto\ \textcolor{keywordtype}{id}>}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00003}\mbox{\hyperlink{structlazy__segtree}{00003}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structlazy__segtree}{lazy\_segtree}}\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00004}00004\ \ \ \ \ \textcolor{keyword}{static\_assert}(is\_convertible\_v<\textcolor{keyword}{decltype}(op),\ function<T(T,\ T)>>,\ \textcolor{stringliteral}{"{}op\ must\ work\ as\ T(T,\ T)"{}});}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00005}00005\ \ \ \ \ \textcolor{keyword}{static\_assert}(is\_convertible\_v<\textcolor{keyword}{decltype}(e),\ function<T()>>,\ \textcolor{stringliteral}{"{}e\ must\ work\ as\ T()"{}});}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00006}00006\ \ \ \ \ \textcolor{keyword}{static\_assert}(is\_convertible\_v<\textcolor{keyword}{decltype}(mapping),\ function<T(F,\ T)>>,\ \textcolor{stringliteral}{"{}mapping\ must\ work\ as\ T(F,\ T)"{}});}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00007}00007\ \ \ \ \ \textcolor{keyword}{static\_assert}(is\_convertible\_v<\textcolor{keyword}{decltype}(composition),\ function<F(F,\ F)>>,\ \textcolor{stringliteral}{"{}composition\ must\ work\ as\ F(F,\ F)"{}});}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00008}00008\ \ \ \ \ \textcolor{keyword}{static\_assert}(is\_convertible\_v<\textcolor{keyword}{decltype}(id),\ function<F()>>,\ \textcolor{stringliteral}{"{}id\ must\ work\ as\ F()"{}});}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00010}00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{structlazy__segtree}{lazy\_segtree}}()}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00012}00012\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structlazy__segtree}{lazy\_segtree}}(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00014}00014\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structlazy__segtree}{lazy\_segtree}}(\textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00015}00015\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structlazy__segtree}{lazy\_segtree}}(vector<T>(n,\ e()))\ \{\}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structlazy__segtree}{lazy\_segtree}}(\textcolor{keyword}{const}\ vector<T>\ \&v)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ :\ mn(\textcolor{keywordtype}{int}(v.size()))\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ msize\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (msize\ <\ mn)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ msize\ *=\ 2;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ mlog\ =\ \_\_builtin\_ctz(\textcolor{keywordtype}{unsigned}(msize));}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ md\ =\ vector<T>(2\ *\ msize,\ e());}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00024}00024\ \ \ \ \ \ \ \ \ mlz\ =\ vector<F>(2\ *\ msize,\ \textcolor{keywordtype}{id}());}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ mn;\ i++)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \ \ \ \ md[msize\ +\ i]\ =\ v[i];}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ msize\ -\/\ 1;\ i\ >=\ 1;\ i-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ update(i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{int}\ p,\ T\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ assert(0\ <=\ p\ \&\&\ p\ <\ mn);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ p\ +=\ msize;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ mlog;\ i\ >=\ 1;\ i-\/-\/)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ push(p\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00037}00037\ \ \ \ \ \ \ \ \ md[p]\ =\ x;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ mlog;\ i++)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ update(p\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00041}00041\ \ \ \ \ T\ get(\textcolor{keywordtype}{int}\ p)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ assert(0\ <=\ p\ \&\&\ p\ <\ mn);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ p\ +=\ msize;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ mlog;\ i\ >=\ 1;\ i-\/-\/)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ push(p\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ md[p\ +\ msize];}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00049}00049\ \ \ \ \ T\ prod(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ r)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00050}00050\ \ \ \ \ \ \ \ \ assert(0\ <=\ l\ \&\&\ l\ <=\ r\ \&\&\ r\ <=\ mn);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l\ ==\ r)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ e();}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00054}00054\ \ \ \ \ \ \ \ \ l\ +=\ msize,\ r\ +=\ msize;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ mlog;\ i\ >=\ 1;\ i-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((l\ >>\ i)\ <<\ i)\ !=\ l)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push(l\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((r\ >>\ i)\ <<\ i)\ !=\ r)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push((r\ -\/\ 1)\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ T\ sml\ =\ e(),\ smr\ =\ e();}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (l\ <\ r)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l\ \&\ 1)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sml\ =\ op(sml,\ md[l++]);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ \&\ 1)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ smr\ =\ op(md[-\/-\/r],\ smr);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ l\ >>=\ 1;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ r\ >>=\ 1;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ op(sml,\ smr);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00073}00073\ \ \ \ \ T\ all\_prod()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ md[1];\ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00075}00075\ \ \ \ \ \textcolor{keywordtype}{void}\ apply(\textcolor{keywordtype}{int}\ p,\ F\ f)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ assert(0\ <=\ p\ \&\&\ p\ <\ mn);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ p\ +=\ msize;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ mlog;\ i\ >=\ 1;\ i-\/-\/)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ push(p\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ md[p]\ =\ mapping(f,\ md[p]);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ mlog;\ i++)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ update(p\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{void}\ apply(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ r,\ F\ f)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00085}00085\ \ \ \ \ \ \ \ \ assert(0\ <=\ l\ \&\&\ l\ <=\ r\ \&\&\ r\ <=\ mn);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l\ ==\ r)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00088}00088\ \ \ \ \ \ \ \ \ l\ +=\ msize,\ r\ +=\ msize;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ mlog;\ i\ >=\ 1;\ i-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((l\ >>\ i)\ <<\ i)\ !=\ l)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push(l\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((r\ >>\ i)\ <<\ i)\ !=\ r)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push((r\ -\/\ 1)\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ l2\ =\ l,\ r2\ =\ r;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (l\ <\ r)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l\ \&\ 1)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_apply(l++,\ f);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ \&\ 1)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ all\_apply(-\/-\/r,\ f);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ l\ >>=\ 1;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ >>=\ 1;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ l\ =\ l2,\ r\ =\ r2;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ mlog;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((l\ >>\ i)\ <<\ i)\ !=\ l)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ update(l\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((r\ >>\ i)\ <<\ i)\ !=\ r)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ update((r\ -\/\ 1)\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00113}00113\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00115}00115\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ (*f)(T)>}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00116}00116\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_right(\textcolor{keywordtype}{int}\ l)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ max\_right(l,\ [](T\ x)\ \{\ \textcolor{keywordflow}{return}\ f(x);\ \});}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00118}00118\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00120}00120\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00121}00121\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_right(\textcolor{keywordtype}{int}\ l,\ U\ f)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00122}00122\ \ \ \ \ \ \ \ \ assert(0\ <=\ l\ \&\&\ l\ <=\ mn);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00123}00123\ \ \ \ \ \ \ \ \ assert(f(e()));}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l\ ==\ mn)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mn;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00126}00126\ \ \ \ \ \ \ \ \ l\ +=\ msize;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ mlog;\ i\ >=\ 1;\ i-\/-\/)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ push(l\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00129}00129\ \ \ \ \ \ \ \ \ T\ sm\ =\ e();}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (l\ \%\ 2\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ l\ >>=\ 1;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!f(op(sm,\ md[l])))\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (l\ <\ msize)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push(l);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ l\ =\ 2\ *\ l;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (f(op(sm,\ md[l])))\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sm\ =\ op(sm,\ md[l]);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ l++;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ l\ -\/\ msize;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ sm\ =\ op(sm,\ md[l]);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ l++;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((l\ \&\ -\/l)\ !=\ l);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mn;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00148}00148\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00150}00150\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ (*f)(T)>}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00151}00151\ \ \ \ \ \textcolor{keywordtype}{int}\ min\_left(\textcolor{keywordtype}{int}\ r)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ min\_left(r,\ [](T\ x)\ \{\ \textcolor{keywordflow}{return}\ f(x);\ \});}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00153}00153\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00154}00154\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00155}00155\ \ \ \ \ \textcolor{keywordtype}{int}\ min\_left(\textcolor{keywordtype}{int}\ r,\ U\ f)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00156}00156\ \ \ \ \ \ \ \ \ assert(0\ <=\ r\ \&\&\ r\ <=\ mn);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00157}00157\ \ \ \ \ \ \ \ \ assert(f(e()));}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00160}00160\ \ \ \ \ \ \ \ \ r\ +=\ msize;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ mlog;\ i\ >=\ 1;\ i-\/-\/)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ push((r\ -\/\ 1)\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00163}00163\ \ \ \ \ \ \ \ \ T\ sm\ =\ e();}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ r-\/-\/;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (r\ >\ 1\ \&\&\ (r\ \%\ 2))}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ >>=\ 1;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!f(op(md[r],\ sm)))\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (r\ <\ msize)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ push(r);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ 2\ *\ r\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (f(op(md[r],\ sm)))\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sm\ =\ op(sm,\ md[r]);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r-\/-\/;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r\ +\ 1\ -\/\ msize;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ sm\ =\ op(md[r],\ sm);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((r\ \&\ -\/r)\ !=\ r);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00182}00182\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00184}00184\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00185}00185\ \ \ \ \ \textcolor{keywordtype}{int}\ mn,\ msize,\ mlog;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00186}00186\ \ \ \ \ vector<T>\ md;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00187}00187\ \ \ \ \ vector<F>\ mlz;}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00188}00188\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{int}\ k)\ \{\ md[k]\ =\ op(md[2\ *\ k],\ md[2\ *\ k\ +\ 1]);\ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00189}00189\ \ \ \ \ \textcolor{keywordtype}{void}\ all\_apply(\textcolor{keywordtype}{int}\ k,\ F\ f)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00190}00190\ \ \ \ \ \ \ \ \ md[k]\ =\ mapping(f,\ md[k]);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (k\ <\ msize)}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ mlz[k]\ =\ composition(f,\ mlz[k]);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00193}00193\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00194}00194\ \ \ \ \ \textcolor{keywordtype}{void}\ push(\textcolor{keywordtype}{int}\ k)\ \{}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00195}00195\ \ \ \ \ \ \ \ \ all\_apply(2\ *\ k,\ mlz[k]);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00196}00196\ \ \ \ \ \ \ \ \ all\_apply(2\ *\ k\ +\ 1,\ mlz[k]);}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00197}00197\ \ \ \ \ \ \ \ \ mlz[k]\ =\ id();}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00198}00198\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{lazysegtree_8hpp_source_l00199}00199\ \};}
+
+\end{DoxyCode}

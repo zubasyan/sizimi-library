@@ -1,0 +1,126 @@
+\doxysection{segtree.\+hpp}
+\hypertarget{segtree_8hpp_source}{}\label{segtree_8hpp_source}\index{tree/segtree.hpp@{tree/segtree.hpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}../template.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00002}00002\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ auto\ op,\ auto\ e>}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00003}\mbox{\hyperlink{structsegtree}{00003}}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structsegtree}{segtree}}\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00004}00004\ \ \ \ \ \textcolor{keyword}{static\_assert}(is\_convertible\_v<\textcolor{keyword}{decltype}(op),\ function<T(T,\ T)>>,\ \textcolor{stringliteral}{"{}op\ must\ work\ as\ S(S,S)"{}});}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00005}00005\ \ \ \ \ \textcolor{keyword}{static\_assert}(is\_convertible\_v<\textcolor{keyword}{decltype}(e),\ function<T()>>,\ \textcolor{stringliteral}{"{}e\ must\ work\ as\ S()"{}});}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00007}00007\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00008}00008\ \ \ \ \ \mbox{\hyperlink{structsegtree}{segtree}}()}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00009}00009\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structsegtree}{segtree}}(0)\ \{\}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00010}00010\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structsegtree}{segtree}}(\textcolor{keywordtype}{int}\ n)}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00011}00011\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{structsegtree}{segtree}}(vector<T>(n,\ e()))\ \{\}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{structsegtree}{segtree}}(\textcolor{keyword}{const}\ vector<T>\ \&v)}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00013}00013\ \ \ \ \ \ \ \ \ :\ mn(\textcolor{keywordtype}{int}(v.size()))\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00014}00014\ \ \ \ \ \ \ \ \ msize\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (msize\ <\ mn)}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00016}00016\ \ \ \ \ \ \ \ \ \ \ \ \ msize\ *=\ 2;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00017}00017\ \ \ \ \ \ \ \ \ mlog\ =\ \_\_builtin\_ctz(\textcolor{keywordtype}{unsigned}(msize));}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00018}00018\ \ \ \ \ \ \ \ \ md\ =\ vector<T>(2\ *\ msize,\ e());}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ mn;\ i++)}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ md[msize\ +\ i]\ =\ v[i];}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ msize\ -\/\ 1;\ i\ >=\ 1;\ i-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ update(i);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00024}00024\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{void}\ set(\textcolor{keywordtype}{int}\ p,\ T\ x)\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00026}00026\ \ \ \ \ \ \ \ \ assert(0\ <=\ p\ \&\&\ p\ <\ mn);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00027}00027\ \ \ \ \ \ \ \ \ p\ +=\ msize;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00028}00028\ \ \ \ \ \ \ \ \ md[p]\ =\ x;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ mlog;\ i++)}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ update(p\ >>\ i);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00032}00032\ \ \ \ \ T\ get(\textcolor{keywordtype}{int}\ p)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00033}00033\ \ \ \ \ \ \ \ \ assert(0\ <=\ p\ \&\&\ p\ <\ mn);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ md[p\ +\ msize];}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00035}00035\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00037}00037\ \ \ \ \ T\ prod(\textcolor{keywordtype}{int}\ l,\ \textcolor{keywordtype}{int}\ r)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00038}00038\ \ \ \ \ \ \ \ \ assert(0\ <=\ l\ \&\&\ l\ <=\ r\ \&\&\ r\ <=\ mn);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00039}00039\ \ \ \ \ \ \ \ \ T\ sml\ =\ e(),\ smr\ =\ e();}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00040}00040\ \ \ \ \ \ \ \ \ l\ +=\ msize,\ r\ +=\ msize;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (l\ <\ r)\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l\ \&\ 1)}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sml\ =\ op(sml,\ md[l++]);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ \&\ 1)}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ smr\ =\ op(md[-\/-\/r],\ smr);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ l\ >>=\ 1;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ r\ >>=\ 1;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ op(sml,\ smr);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00050}00050\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00051}00051\ \ \ \ \ T\ all\_prod()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ md[1];\ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00053}00053\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ (*f)(T)>}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_right(\textcolor{keywordtype}{int}\ l)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ max\_right(l,\ [](T\ x)\ \{\ \textcolor{keywordflow}{return}\ f(x);\ \});}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00058}00058\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{int}\ max\_right(\textcolor{keywordtype}{int}\ l,\ U\ f)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00060}00060\ \ \ \ \ \ \ \ \ assert(0\ <=\ l\ \&\&\ l\ <=\ mn);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00061}00061\ \ \ \ \ \ \ \ \ assert(f(e()));}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (l\ ==\ mn)}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mn;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00064}00064\ \ \ \ \ \ \ \ \ l\ +=\ msize;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00065}00065\ \ \ \ \ \ \ \ \ T\ sm\ =\ e();}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (l\ \%\ 2\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ l\ >>=\ 1;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!f(op(sm,\ md[l])))\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (l\ <\ msize)\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ l\ =\ 2\ *\ l;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (f(op(sm,\ md[l])))\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sm\ =\ op(sm,\ md[l]);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ l++;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ l\ -\/\ msize;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ sm\ =\ op(sm,\ md[l]);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ l++;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((l\ \&\ -\/l)\ !=\ l);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ mn;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00083}00083\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00085}00085\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keywordtype}{bool}\ (*f)(T)>}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00086}00086\ \ \ \ \ \textcolor{keywordtype}{int}\ min\_left(\textcolor{keywordtype}{int}\ r)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ min\_left(r,\ [](T\ x)\ \{\ \textcolor{keywordflow}{return}\ f(x);\ \});}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00089}00089\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ U>}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00090}00090\ \ \ \ \ \textcolor{keywordtype}{int}\ min\_left(\textcolor{keywordtype}{int}\ r,\ U\ f)\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00091}00091\ \ \ \ \ \ \ \ \ assert(0\ <=\ r\ \&\&\ r\ <=\ mn);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00092}00092\ \ \ \ \ \ \ \ \ assert(f(e()));}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (r\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00095}00095\ \ \ \ \ \ \ \ \ r\ +=\ msize;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00096}00096\ \ \ \ \ \ \ \ \ T\ sm\ =\ e();}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ r-\/-\/;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (r\ >\ 1\ \&\&\ (r\ \%\ 2))}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ >>=\ 1;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!f(op(md[r],\ sm)))\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (r\ <\ msize)\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r\ =\ 2\ *\ r\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (f(op(md[r],\ sm)))\ \{}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sm\ =\ op(sm,\ md[r]);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ r-\/-\/;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ r\ +\ 1\ -\/\ msize;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ sm\ =\ op(md[r],\ sm);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((r\ \&\ -\/r)\ !=\ r);}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00114}00114\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00115}00115\ }
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00116}00116\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00117}00117\ \ \ \ \ \textcolor{keywordtype}{int}\ mn,\ msize,\ mlog;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00118}00118\ \ \ \ \ vector<T>\ md;}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordtype}{void}\ update(\textcolor{keywordtype}{int}\ k)\ \{\ md[k]\ =\ op(md[2\ *\ k],\ md[2\ *\ k\ +\ 1]);\ \}}
+\DoxyCodeLine{\Hypertarget{segtree_8hpp_source_l00120}00120\ \};}
+
+\end{DoxyCode}

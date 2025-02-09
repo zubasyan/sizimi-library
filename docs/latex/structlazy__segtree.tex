@@ -1,0 +1,196 @@
+\doxysection{lazy\+\_\+segtree\texorpdfstring{$<$}{<} T, op, e, F, mapping, composition, id \texorpdfstring{$>$}{>} 構造体テンプレート}
+\hypertarget{structlazy__segtree}{}\label{structlazy__segtree}\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection*{公開メンバ関数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structlazy__segtree_a3a99ff62576f754967cc2732241d68c1}{lazy\+\_\+segtree}} (int n)
+\item 
+\mbox{\hyperlink{structlazy__segtree_a8c4299218bc10803ac98d32da4a5ceda}{lazy\+\_\+segtree}} (const vector$<$ T $>$ \&v)
+\item 
+void \mbox{\hyperlink{structlazy__segtree_a91454b68273de4a26546fb0fc6b6f200}{set}} (int p, T x)
+\item 
+T \mbox{\hyperlink{structlazy__segtree_a78f431732c93fa270712d66a5c492c5a}{get}} (int p)
+\item 
+T \mbox{\hyperlink{structlazy__segtree_a1941b7dee57d41c06f28fb00aa705980}{prod}} (int l, int r)
+\item 
+T \mbox{\hyperlink{structlazy__segtree_a881599182f1b375b6b3187cb3c57720b}{all\+\_\+prod}} () const
+\item 
+void \mbox{\hyperlink{structlazy__segtree_a125df7a76ec566167799bac6ecbbbd2f}{apply}} (int p, F f)
+\item 
+void \mbox{\hyperlink{structlazy__segtree_abecd55a47785a598ad251ee6a2b0e3b7}{apply}} (int l, int r, F f)
+\item 
+{\footnotesize template$<$bool(\texorpdfstring{$\ast$}{*})(T) f$>$ }\\int \mbox{\hyperlink{structlazy__segtree_a67a046f3e6ad667fe9667089038f5a32}{max\+\_\+right}} (int l) const
+\item 
+{\footnotesize template$<$typename U $>$ }\\int \mbox{\hyperlink{structlazy__segtree_acb774a87d77395225e06fd3bf785ea13}{max\+\_\+right}} (int l, U f) const
+\item 
+{\footnotesize template$<$bool(\texorpdfstring{$\ast$}{*})(T) f$>$ }\\int \mbox{\hyperlink{structlazy__segtree_a2cc90c8cb6a800ce4c1090ea582ba542}{min\+\_\+left}} (int r) const
+\item 
+{\footnotesize template$<$typename U $>$ }\\int \mbox{\hyperlink{structlazy__segtree_ab95ea8fec9106d2e0e4b7a23e2c46794}{min\+\_\+left}} (int r, U f) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{詳解}
+\subsubsection*{template$<$typename T, auto op, auto e, typename F, auto mapping, auto composition, auto id$>$\newline
+struct lazy\+\_\+segtree$<$ T, op, e, F, mapping, composition, id $>$}
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00003}{3}} 行目に定義があります。
+
+
+
+\doxysubsection{構築子と解体子}
+\Hypertarget{structlazy__segtree_a3bd96bc984e5904107dcb68b9596ee73}\label{structlazy__segtree_a3bd96bc984e5904107dcb68b9596ee73} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!lazy\_segtree@{lazy\_segtree}}
+\index{lazy\_segtree@{lazy\_segtree}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{lazy\_segtree()}{lazy\_segtree()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+\mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\mbox{\hyperlink{structlazy__segtree}{\+::lazy\+\_\+segtree}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00011}{11}} 行目に定義があります。
+
+\Hypertarget{structlazy__segtree_a3a99ff62576f754967cc2732241d68c1}\label{structlazy__segtree_a3a99ff62576f754967cc2732241d68c1} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!lazy\_segtree@{lazy\_segtree}}
+\index{lazy\_segtree@{lazy\_segtree}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{lazy\_segtree()}{lazy\_segtree()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+\mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\mbox{\hyperlink{structlazy__segtree}{\+::lazy\+\_\+segtree}} (\begin{DoxyParamCaption}\item[{int}]{n }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00014}{14}} 行目に定義があります。
+
+\Hypertarget{structlazy__segtree_a8c4299218bc10803ac98d32da4a5ceda}\label{structlazy__segtree_a8c4299218bc10803ac98d32da4a5ceda} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!lazy\_segtree@{lazy\_segtree}}
+\index{lazy\_segtree@{lazy\_segtree}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{lazy\_segtree()}{lazy\_segtree()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+\mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\mbox{\hyperlink{structlazy__segtree}{\+::lazy\+\_\+segtree}} (\begin{DoxyParamCaption}\item[{const vector$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00017}{17}} 行目に定義があります。
+
+
+
+\doxysubsection{関数詳解}
+\Hypertarget{structlazy__segtree_a881599182f1b375b6b3187cb3c57720b}\label{structlazy__segtree_a881599182f1b375b6b3187cb3c57720b} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!all\_prod@{all\_prod}}
+\index{all\_prod@{all\_prod}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{all\_prod()}{all\_prod()}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+T \mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\+::all\+\_\+prod (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00073}{73}} 行目に定義があります。
+
+\Hypertarget{structlazy__segtree_abecd55a47785a598ad251ee6a2b0e3b7}\label{structlazy__segtree_abecd55a47785a598ad251ee6a2b0e3b7} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!apply@{apply}}
+\index{apply@{apply}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+void \mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\+::apply (\begin{DoxyParamCaption}\item[{int}]{l,  }\item[{int}]{r,  }\item[{F}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00084}{84}} 行目に定義があります。
+
+\Hypertarget{structlazy__segtree_a125df7a76ec566167799bac6ecbbbd2f}\label{structlazy__segtree_a125df7a76ec566167799bac6ecbbbd2f} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!apply@{apply}}
+\index{apply@{apply}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+void \mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\+::apply (\begin{DoxyParamCaption}\item[{int}]{p,  }\item[{F}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00075}{75}} 行目に定義があります。
+
+\Hypertarget{structlazy__segtree_a78f431732c93fa270712d66a5c492c5a}\label{structlazy__segtree_a78f431732c93fa270712d66a5c492c5a} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!get@{get}}
+\index{get@{get}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+T \mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\+::get (\begin{DoxyParamCaption}\item[{int}]{p }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00041}{41}} 行目に定義があります。
+
+\Hypertarget{structlazy__segtree_a67a046f3e6ad667fe9667089038f5a32}\label{structlazy__segtree_a67a046f3e6ad667fe9667089038f5a32} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!max\_right@{max\_right}}
+\index{max\_right@{max\_right}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{max\_right()}{max\_right()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+template$<$bool(\texorpdfstring{$\ast$}{*})(T) f$>$ \\
+int \mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\+::max\+\_\+right (\begin{DoxyParamCaption}\item[{int}]{l }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00116}{116}} 行目に定義があります。
+
+\Hypertarget{structlazy__segtree_acb774a87d77395225e06fd3bf785ea13}\label{structlazy__segtree_acb774a87d77395225e06fd3bf785ea13} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!max\_right@{max\_right}}
+\index{max\_right@{max\_right}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{max\_right()}{max\_right()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+template$<$typename U $>$ \\
+int \mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\+::max\+\_\+right (\begin{DoxyParamCaption}\item[{int}]{l,  }\item[{U}]{f }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00121}{121}} 行目に定義があります。
+
+\Hypertarget{structlazy__segtree_a2cc90c8cb6a800ce4c1090ea582ba542}\label{structlazy__segtree_a2cc90c8cb6a800ce4c1090ea582ba542} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!min\_left@{min\_left}}
+\index{min\_left@{min\_left}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{min\_left()}{min\_left()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+template$<$bool(\texorpdfstring{$\ast$}{*})(T) f$>$ \\
+int \mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\+::min\+\_\+left (\begin{DoxyParamCaption}\item[{int}]{r }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00151}{151}} 行目に定義があります。
+
+\Hypertarget{structlazy__segtree_ab95ea8fec9106d2e0e4b7a23e2c46794}\label{structlazy__segtree_ab95ea8fec9106d2e0e4b7a23e2c46794} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!min\_left@{min\_left}}
+\index{min\_left@{min\_left}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{min\_left()}{min\_left()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+template$<$typename U $>$ \\
+int \mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\+::min\+\_\+left (\begin{DoxyParamCaption}\item[{int}]{r,  }\item[{U}]{f }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00155}{155}} 行目に定義があります。
+
+\Hypertarget{structlazy__segtree_a1941b7dee57d41c06f28fb00aa705980}\label{structlazy__segtree_a1941b7dee57d41c06f28fb00aa705980} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!prod@{prod}}
+\index{prod@{prod}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{prod()}{prod()}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+T \mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\+::prod (\begin{DoxyParamCaption}\item[{int}]{l,  }\item[{int}]{r }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00049}{49}} 行目に定義があります。
+
+\Hypertarget{structlazy__segtree_a91454b68273de4a26546fb0fc6b6f200}\label{structlazy__segtree_a91454b68273de4a26546fb0fc6b6f200} 
+\index{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}!set@{set}}
+\index{set@{set}!lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$@{lazy\_segtree$<$ T, op, e, F, mapping, composition, id $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily template$<$typename T , auto op, auto e, typename F , auto mapping, auto composition, auto id$>$ \\
+void \mbox{\hyperlink{structlazy__segtree}{lazy\+\_\+segtree}}$<$ T, op, e, F, mapping, composition, id $>$\+::set (\begin{DoxyParamCaption}\item[{int}]{p,  }\item[{T}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+ \mbox{\hyperlink{lazysegtree_8hpp_source}{lazysegtree.\+hpp}} の \mbox{\hyperlink{lazysegtree_8hpp_source_l00032}{32}} 行目に定義があります。
+
+
+
+この構造体詳解は次のファイルから抽出されました\+:\begin{DoxyCompactItemize}
+\item 
+tree/lazysegtree.\+hpp\end{DoxyCompactItemize}

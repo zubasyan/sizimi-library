@@ -1,0 +1,30 @@
+\doxysection{segtree1.\+test.\+cpp}
+\hypertarget{segtree1_8test_8cpp_source}{}\label{segtree1_8test_8cpp_source}\index{test-\/verify/segtree1.test.cpp@{test-\/verify/segtree1.test.cpp}}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}../tree/segtree.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#define\ PROBLEM\ "{}https://judge.u-\/aizu.ac.jp/onlinejudge/description.jsp?id=DSL\_2\_A\&lang=jp"{}}}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00004}00004\ \textcolor{keywordtype}{int}\ op(\textcolor{keywordtype}{int}\ a,\ \textcolor{keywordtype}{int}\ b)\ \{}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00005}00005\ \ \ \ \ \textcolor{keywordflow}{return}\ min(a,\ b);}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00006}00006\ \}}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00007}00007\ \textcolor{keywordtype}{int}\ e()\ \{\ \textcolor{keywordflow}{return}\ ll((1LL\ <<\ 31)\ -\/\ 1);\ \}}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00008}00008\ \textcolor{keywordtype}{int}\ main()\ \{}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordtype}{int}\ n,\ q;}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00010}00010\ \ \ \ \ cin\ >>\ n\ >>\ q;}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{structsegtree}{segtree<int,\ op,\ e>}}\ seg(n);}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{while}\ (q-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ com;}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00014}00014\ \ \ \ \ \ \ \ \ cin\ >>\ com;}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00015}00015\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x,\ y;}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00016}00016\ \ \ \ \ \ \ \ \ cin\ >>\ x\ >>\ y;}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (com\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ seg.set(x,\ y);}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ seg.prod(x,\ y\ +\ 1)\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00022}00022\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{segtree1_8test_8cpp_source_l00024}00024\ \}}
+
+\end{DoxyCode}
