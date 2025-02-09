@@ -57,8 +57,14 @@ data:
       path: tree/DSU_W.hpp
       title: "\u5DEE\u5206\u5236\u7D04\u3092\u307F\u305F\u3059dsu"
     - icon: ':heavy_check_mark:'
+      path: tree/lazysegtree.hpp
+      title: tree/lazysegtree.hpp
+    - icon: ':heavy_check_mark:'
       path: tree/lca_tree.hpp
       title: tree/lca_tree.hpp
+    - icon: ':heavy_check_mark:'
+      path: tree/segtree.hpp
+      title: tree/segtree.hpp
   verificationCategories:
   - name: .
     pages:
@@ -89,11 +95,17 @@ data:
       path: test-verify/fenwick-tree3.test.cpp
       title: test-verify/fenwick-tree3.test.cpp
     - icon: ':heavy_check_mark:'
+      path: test-verify/lazysegtree.test.cpp
+      title: test-verify/lazysegtree.test.cpp
+    - icon: ':heavy_check_mark:'
       path: test-verify/lca_tree_doubling.test.cpp
       title: test-verify/lca_tree_doubling.test.cpp
     - icon: ':heavy_check_mark:'
       path: test-verify/scc.test.cpp
       title: test-verify/scc.test.cpp
+    - icon: ':heavy_check_mark:'
+      path: test-verify/segtree1.test.cpp
+      title: test-verify/segtree1.test.cpp
     - icon: ':heavy_check_mark:'
       path: test-verify/sparse-table.test.cpp
       title: test-verify/sparse-table.test.cpp

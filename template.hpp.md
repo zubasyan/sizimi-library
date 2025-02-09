@@ -18,8 +18,14 @@ data:
     path: tree/DSU_W.hpp
     title: "\u5DEE\u5206\u5236\u7D04\u3092\u307F\u305F\u3059dsu"
   - icon: ':heavy_check_mark:'
+    path: tree/lazysegtree.hpp
+    title: tree/lazysegtree.hpp
+  - icon: ':heavy_check_mark:'
     path: tree/lca_tree.hpp
     title: tree/lca_tree.hpp
+  - icon: ':heavy_check_mark:'
+    path: tree/segtree.hpp
+    title: tree/segtree.hpp
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test-verify/dsu_w.test.cpp
@@ -40,11 +46,17 @@ data:
     path: test-verify/fenwick-tree3.test.cpp
     title: test-verify/fenwick-tree3.test.cpp
   - icon: ':heavy_check_mark:'
+    path: test-verify/lazysegtree.test.cpp
+    title: test-verify/lazysegtree.test.cpp
+  - icon: ':heavy_check_mark:'
     path: test-verify/lca_tree_doubling.test.cpp
     title: test-verify/lca_tree_doubling.test.cpp
   - icon: ':heavy_check_mark:'
     path: test-verify/scc.test.cpp
     title: test-verify/scc.test.cpp
+  - icon: ':heavy_check_mark:'
+    path: test-verify/segtree1.test.cpp
+    title: test-verify/segtree1.test.cpp
   - icon: ':heavy_check_mark:'
     path: test-verify/sparse-table.test.cpp
     title: test-verify/sparse-table.test.cpp
@@ -101,16 +113,20 @@ data:
   - number-theory/extgcd.hpp
   - number-theory/eulers-phi-function.hpp
   - tree/DSU_W.hpp
+  - tree/lazysegtree.hpp
   - tree/lca_tree.hpp
+  - tree/segtree.hpp
   timestamp: '2024-12-26 21:12:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
+  - test-verify/lazysegtree.test.cpp
   - test-verify/eulers-phi-function.test.cpp
   - test-verify/dsu_w.test.cpp
   - test-verify/fenwick-tree2.test.cpp
   - test-verify/sparse-table.test.cpp
   - test-verify/lca_tree_doubling.test.cpp
   - test-verify/fenwick-tree1.test.cpp
+  - test-verify/segtree1.test.cpp
   - test-verify/fenwick-tree3.test.cpp
   - test-verify/extgcd.test.cpp
   - test-verify/scc.test.cpp
