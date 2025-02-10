@@ -2,6 +2,9 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy:
+  - icon: ':warning:'
+    path: benri/tableDraw.hpp
+    title: benri/tableDraw.hpp
   - icon: ':heavy_check_mark:'
     path: graph-other/scc.hpp
     title: graph-other/scc.hpp
@@ -108,6 +111,7 @@ data:
   isVerificationFile: false
   path: template.hpp
   requiredBy:
+  - benri/tableDraw.hpp
   - structure/sparse-table.hpp
   - graph-other/scc.hpp
   - number-theory/extgcd.hpp
